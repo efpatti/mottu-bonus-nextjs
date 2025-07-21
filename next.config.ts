@@ -15,8 +15,8 @@ const nextConfig: NextConfig = {
   * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
   */
  ...(process.env.NODE_ENV === "production" && {
-  basePath: "/mottu-bonus-nextjs",
-  assetPrefix: "/mottu-bonus-nextjs",
+  basePath: "/mottu-bonus",
+  assetPrefix: "/mottu-bonus",
  }),
 
  /**
@@ -33,6 +33,13 @@ const nextConfig: NextConfig = {
   * Configure trailing slash for static exports compatibility
   */
  trailingSlash: true,
+
+ /**
+  * Ensure CSS is properly handled in static exports
+  */
+ experimental: {
+  optimizeCss: true,
+ },
 };
 
 export default nextConfig;
