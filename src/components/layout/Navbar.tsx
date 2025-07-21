@@ -57,21 +57,21 @@ export const Navbar = () => {
   <nav className="bg-zinc-900 w-full">
    <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div className="flex h-16 items-center justify-between w-full">
-          {/* Logo à esquerda */}
-          <div className="flex items-center flex-shrink-0">
-            <Image 
-              src={getAssetPath("mottu_logo.png")} 
-              alt="Mottu Logo" 
-              width={120} 
-              height={32}
-              className="h-8 w-auto"
-              priority
-            />
-          </div>     {/* Desktop progress steps */}
+     {/* Logo à esquerda */}
+     <div className="flex items-center flex-shrink-0">
+      <Image
+       src={getAssetPath("mottu_logo.png")}
+       alt="Mottu Logo"
+       width={120}
+       height={32}
+       className="h-8 w-auto"
+       priority
+      />
+     </div>{" "}
+     {/* Desktop progress steps */}
      <div className="hidden sm:flex flex-1 justify-end items-center">
       {renderProgressSteps()}
      </div>
-
      {/* Mobile progress steps */}
      <div className="flex sm:hidden flex-1 justify-center items-center">
       {renderProgressSteps()}
