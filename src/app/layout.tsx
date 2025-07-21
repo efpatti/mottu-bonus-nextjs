@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import "./globals.css";
+import { getAssetPath } from "@/utils/assets";
 
 const geistSans = Inter({
  subsets: ["latin"],
@@ -16,6 +17,9 @@ const geistMono = Inter({
 export const metadata: Metadata = {
  title: "Mottu | Bonificação",
  description: "Reconhecendo quem faz a diferença!",
+ icons: {
+  icon: getAssetPath("mottu_logo.png"),
+ },
 };
 export default function RootLayout({
  children,
