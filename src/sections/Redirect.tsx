@@ -1,15 +1,20 @@
 "use client";
 
 import { FaMotorcycle, FaCar } from "react-icons/fa";
-import { useLevelContext } from "@/providers/LevelProvider";
 import { VehicleType } from "@/stores/levelStore";
 import { NavigationButtons } from "@/components/NavigationButtons";
+import { useVehicleSelection } from "@/hooks/useVehicleSelection";
 
-export const VehicleSelection = () => {
- const { selectedVehicle, setSelectedVehicle } = useLevelContext();
+interface RedirectProps {
+ onContinue?: () => void;
+}
 
- const handleVehicleSelect = (vehicle: VehicleType) => {
+export function Redirect({ onContinue }: RedirectProps) {
+ const { selectedVehicle, setSelectedVehicle } = useVehicleSelection();
+
+ const handleSelect = (vehicle: VehicleType) => {
   setSelectedVehicle(vehicle);
+  if (onContinue) onContinue();
  };
 
  return (
@@ -27,9 +32,9 @@ export const VehicleSelection = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
      {/* Motorcycle Button */}
      <button
-      onClick={() => handleVehicleSelect("motorcycle")}
+      onClick={() => handleSelect("motorcycle")}
       className={`
-              flex flex-col items-center justify-center p-6 rounded-lg font-semibold text-lg
+              cursor-pointer flex flex-col items-center justify-center p-6 rounded-lg font-semibold text-lg
               transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500
               ${
                selectedVehicle === "motorcycle"
@@ -44,9 +49,9 @@ export const VehicleSelection = () => {
 
      {/* Car Button */}
      <button
-      onClick={() => handleVehicleSelect("car")}
+      onClick={() => handleSelect("car")}
       className={`
-              flex flex-col items-center justify-center p-6 rounded-lg font-semibold text-lg
+              cursor-pointer flex flex-col items-center justify-center p-6 rounded-lg font-semibold text-lg
               transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500
               ${
                selectedVehicle === "car"
@@ -78,4 +83,4 @@ export const VehicleSelection = () => {
    <NavigationButtons />
   </section>
  );
-};
+}

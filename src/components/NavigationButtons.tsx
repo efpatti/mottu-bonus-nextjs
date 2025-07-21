@@ -30,7 +30,7 @@ export const NavigationButtons = ({
     {!showOnlyNext && (
      <button
       type="button"
-      className="flex items-center gap-2 px-6 py-2 rounded-lg font-semibold text-black bg-white border border-black hover:bg-green-50 hover:text-green-700 focus:ring-2 focus:ring-green-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      className="cursor-pointer flex items-center gap-2 px-6 py-2 rounded-lg font-semibold text-black bg-white border border-black hover:bg-green-50 hover:text-green-700 focus:ring-2 focus:ring-green-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       onClick={previousLevel}
       disabled={!canGoPrevious()}
       aria-label="Voltar para etapa anterior"
@@ -43,7 +43,7 @@ export const NavigationButtons = ({
     {!showOnlyPrevious && (
      <button
       type="button"
-      className="flex items-center gap-2 px-6 py-2 rounded-lg font-semibold text-white bg-green-600 hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      className="cursor-pointer flex items-center gap-2 px-6 py-2 rounded-lg font-semibold text-white bg-green-600 hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       onClick={nextLevel}
       disabled={!canGoNext()}
       aria-label="Avançar para próxima etapa"

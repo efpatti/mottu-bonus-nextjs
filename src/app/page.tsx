@@ -3,7 +3,8 @@
 import { Section } from "@/components/Section";
 import { Introduction } from "@/sections/Introduction";
 import { Eligibility } from "@/sections/Eligibility";
-import { VehicleSelection } from "@/sections/VehicleSelection";
+import { Redirect } from "@/sections/Redirect";
+import { Vehicle } from "@/sections/Vehicle";
 import { NavigationButtons } from "@/components/NavigationButtons";
 
 export default function HomePage() {
@@ -35,26 +36,12 @@ export default function HomePage() {
 
    {/* Level 2 - Vehicle Selection (botão "3" na navbar) */}
    <Section level={2}>
-    <VehicleSelection />
+    <Redirect />
    </Section>
 
    {/* Level 3 - Bonus Rules (botão "4" na navbar) */}
    <Section level={3}>
-    <section className="flex flex-col items-center justify-center min-h-screen py-16 px-4">
-     <div className="max-w-2xl w-full bg-white p-8 rounded-xl shadow-lg text-center">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Regras do Bônus</h1>
-      <p className="text-gray-600 mb-8">
-       Entenda como seu bônus é calculado e quais fatores podem afetá-lo
-      </p>
-      <div className="bg-green-50 p-6 rounded-lg">
-       <p className="text-green-800">
-        Esta seção será implementada com as regras específicas para cada tipo de
-        veículo.
-       </p>
-      </div>
-     </div>
-    </section>
-
+    <Vehicle />
     <NavigationButtons showOnlyPrevious />
    </Section>
   </main>
