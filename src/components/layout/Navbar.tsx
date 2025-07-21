@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { getAssetPath } from "@/utils/assets";
+import { useLevelContext } from "@/providers/LevelProvider";
 
 interface ProgressStepProps {
  step: number;
@@ -32,9 +32,17 @@ const ProgressStep = ({
 );
 
 export const Navbar = () => {
- const [currentLevel, setCurrentLevel] = useState<number>(0);
+ const { currentLevel, setCurrentLevel } = useLevelContext();
+
+ // Debug log
+ console.log(`Navbar: currentLevel=${currentLevel}`);
 
  const steps = [1, 2, 3, 4];
+
+ const handleStepClick = (index: number) => {
+  console.log(`Clicking step ${index + 1}, setting level to ${index}`);
+  setCurrentLevel(index);
+ };
 
  const renderProgressSteps = () => (
   <div
@@ -46,7 +54,7 @@ export const Navbar = () => {
      key={step}
      step={step}
      isActive={currentLevel === index}
-     onClick={() => setCurrentLevel(index)}
+     onClick={() => handleStepClick(index)}
      showConnector={index < steps.length - 1}
     />
    ))}

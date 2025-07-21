@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
+import { LevelProvider } from "@/providers/LevelProvider";
 import "./globals.css";
 import { getAssetPath } from "@/utils/assets";
 
@@ -29,8 +30,10 @@ export default function RootLayout({
  return (
   <html lang="pt-BR">
    <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-    <Navbar />
-    <main>{children}</main>
+    <LevelProvider>
+     <Navbar />
+     <main>{children}</main>
+    </LevelProvider>
    </body>
   </html>
  );
