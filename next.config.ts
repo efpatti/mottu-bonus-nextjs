@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
    */
   ...(process.env.NODE_ENV === "production" && {
     basePath: "/mottu-bonus-nextjs",
+    assetPrefix: "/mottu-bonus-nextjs",
   }),
 
   /**
@@ -27,6 +28,11 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+
+  /**
+   * Configure trailing slash for static exports compatibility
+   */
+  trailingSlash: true,
 };
 
 export default nextConfig;
