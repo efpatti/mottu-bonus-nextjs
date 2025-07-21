@@ -1,77 +1,117 @@
-import { FaUsers, FaClock, FaCar, FaInfoCircle } from "react-icons/fa";
+import {
+ FaUsers,
+ FaClock,
+ FaCar,
+ FaInfoCircle,
+ FaTrophy,
+} from "react-icons/fa";
 
 export const Eligibility = () => {
  return (
-  <div className="w-full">
-   {/* Hero Section - Eligibility */}
-   <section className="w-full bg-gradient-to-r from-green-600 to-green-500 py-16 px-4 sm:px-6 shadow-md flex flex-col justify-center items-center text-center">
-    <div className="max-w-4xl mx-auto">
+  <div className="w-full bg-white">
+   {/* Hero Section - Mais clean */}
+   <section className="w-full bg-green-600 py-10 px-4 sm:px-6">
+    <div className="max-w-4xl mx-auto text-center">
      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
-      Quem pode participar do Programa de Bonificação Individual?
+      O sucesso coletivo libera seu bônus
      </h1>
+     <p className="text-green-100 text-base sm:text-lg">
+      Sua filial precisa cumprir 2 etapas para ativar o bônus individual
+     </p>
+
+     {/* Progress steps - simplificado */}
+     <div className="flex justify-center mt-8 gap-1 sm:gap-4">
+      {["Elegibilidade", "Metas"].map((step, index) => (
+       <div key={index} className="flex flex-col items-center">
+        <div
+         className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 
+                  ${index === 0 ? "bg-green-700" : "bg-green-500"}`}
+        >
+         <span className="text-white font-medium">{index + 1}</span>
+        </div>
+        <span className="text-white text-xs sm:text-sm">{step}</span>
+       </div>
+      ))}
+     </div>
     </div>
    </section>
 
-   {/* Rules Section */}
-   <section className="py-16 px-4 sm:px-6 lg:px-8 w-full bg-white" id="regras">
-    <div className="max-w-6xl mx-auto space-y-10">
-     {/* Header */}
-     <div className="text-center">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-       Critérios de Desempenho
+   {/* Conteúdo Principal */}
+   <section className="py-8 px-4 sm:px-6 max-w-4xl mx-auto">
+    {/* Seção 1 - Elegibilidade */}
+    <div className="mb-10">
+     <div className="flex items-center mb-4">
+      <div className="bg-green-100 p-2 rounded-full mr-3">
+       <FaUsers className="text-green-600 text-lg" />
+      </div>
+      <h2 className="text-xl font-bold text-gray-800">
+       Passo 1: Torne sua filial elegível
       </h2>
-      <p className="text-gray-500 mt-3 text-lg max-w-3xl mx-auto">
-       Cumpra esses requisitos para habilitar sua equipe
-      </p>
      </div>
 
-     {/* Criteria Grid */}
-     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {/* Criteria Item 1 - Prestadores */}
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center h-full">
-       <div className="flex justify-center mb-4">
-        <FaUsers className="text-green-600 text-5xl" />
+     <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+      <h3 className="font-semibold text-gray-800 mb-2">Estrutura da Equipe</h3>
+      <p className="text-gray-600 text-sm">
+       Operar com pelo menos 4 prestadores para se tornar elegível ao programa
+      </p>
+     </div>
+    </div>
+
+    {/* Seção 2 - Metas */}
+    <div className="mb-10">
+     <div className="flex items-center mb-4">
+      <div className="bg-green-100 p-2 rounded-full mr-3">
+       <FaTrophy className="text-green-600 text-lg" />
+      </div>
+      <h2 className="text-xl font-bold text-gray-800">
+       Passo 2: Bata as metas coletivas
+      </h2>
+     </div>
+
+     <div className="space-y-4">
+      {/* Meta 1 */}
+      <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+       <div className="flex items-start">
+        <FaClock className="text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+        <div>
+         <h3 className="font-semibold text-gray-800 mb-1">
+          Agilidade no Atendimento
+         </h3>
+         <p className="text-gray-600 text-sm">
+          80% dos atendimentos na rua abaixo de 90 minutos
+         </p>
+        </div>
        </div>
-       <h3 className="text-xl font-semibold text-gray-800 mb-3">Prestadores</h3>
-       <p className="text-gray-600">4 prestadores previstos</p>
       </div>
 
-      {/* Criteria Item 2 - Tempo de Atendimento */}
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center h-full">
-       <div className="flex justify-center mb-4">
-        <FaClock className="text-green-600 text-5xl" />
+      {/* Meta 2 */}
+      <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+       <div className="flex items-start">
+        <FaCar className="text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+        <div>
+         <h3 className="font-semibold text-gray-800 mb-1">
+          Controle da Inadimplência
+         </h3>
+         <p className="text-gray-600 text-sm">
+          Menos de 0,3% da frota em apropriação
+         </p>
+        </div>
        </div>
-       <h3 className="text-xl font-semibold text-gray-800 mb-3">
-        Tempo de Atendimento
-       </h3>
-       <p className="text-gray-600">80% dos casos abaixo de 90 min na rua</p>
       </div>
+     </div>
+    </div>
 
-      {/* Criteria Item 3 - Frota */}
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center h-full">
-       <div className="flex justify-center mb-4">
-        <FaCar className="text-green-600 text-5xl" />
-       </div>
-       <h3 className="text-xl font-semibold text-gray-800 mb-3">Frota</h3>
-       <p className="text-gray-600">
-        Menos de 0,3% da frota em apropriação (excluindo os casos maiores que
-        120 dias)
+    {/* Aviso Importante - Padronizado */}
+    <div className="bg-green-50 p-5 rounded-lg border border-green-200">
+     <div className="flex items-start">
+      <FaInfoCircle className="text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+      <div>
+       <h3 className="font-semibold text-green-800 mb-1">Atenção</h3>
+       <p className="text-green-700 text-sm">
+        Ambos os passos devem ser concluídos para liberação do bônus.
+        Elegibilidade primeiro, depois metas de desempenho.
        </p>
       </div>
-     </div>
-
-     {/* Important Notice */}
-     <div className="mt-12 bg-green-50 p-8 rounded-xl border border-green-200">
-      <h3 className="text-xl font-semibold text-green-800 mb-4 flex items-center">
-       <FaInfoCircle className="text-green-600 mr-2" />
-       Importante
-      </h3>
-      <p className="text-green-700 text-lg">
-       Todas as regras devem ser cumpridas simultaneamente para que a filial
-       seja elegível ao programa de bonificação. Filiais que não atenderem aos
-       critérios estabelecidos acima não terão direito ao bônus individual do
-       colaborador.
-      </p>
      </div>
     </div>
    </section>

@@ -4,7 +4,6 @@ import { Section } from "@/components/Section";
 import { Introduction } from "@/sections/Introduction";
 import { Eligibility } from "@/sections/Eligibility";
 import { Vehicle } from "@/sections/Vehicle";
-import { Redirect } from "@/sections/Redirect";
 import { NavigationButtons } from "@/components/NavigationButtons";
 
 export default function HomePage() {
@@ -36,13 +35,8 @@ export default function HomePage() {
     <NavigationButtons />
    </Section>
 
-   {/* Level 2 - Vehicle Selection */}
+   {/* Level 2 - Bonus Rules (placeholder for now) */}
    <Section level={2}>
-    <Redirect />
-   </Section>
-
-   {/* Level 3 - Bonus Rules (placeholder for now) */}
-   <Section level={3}>
     <Vehicle />
 
     <NavigationButtons showOnlyPrevious />

@@ -1,9 +1,8 @@
-// Vehicle.tsx
 import React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
  FaMotorcycle as MotorcycleIcon,
  FaCar as CarIcon,
+ FaInfoCircle,
 } from "react-icons/fa";
 import { FiAlertTriangle } from "react-icons/fi";
 import { useVehicleSelection } from "@/hooks/useVehicleSelection";
@@ -51,89 +50,126 @@ const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
  return (
   <div className="space-y-6">
    <Bonus />
-   <div className="p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 space-y-6">
-    <div className="border-b border-gray-200 pb-4">
-     <h2 className="text-lg sm:text-xl font-bold text-gray-900">
-      Cálculo do Bônus
-     </h2>
-     <p className="text-sm sm:text-base text-gray-600 mt-2">
+
+   {/* Seção de Cálculo do Bônus */}
+   <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+    <h2 className="text-xl font-bold text-gray-800 mb-4">Cálculo do Bônus</h2>
+    <div className="bg-green-50 p-4 rounded-lg border border-green-100">
+     <p className="text-green-800">
       {type === "motorcycle" ? (
        <>
-        Você recebe <span className="font-bold text-green-600">R$ 40</span> ao
-        atingir a meta diária de 5 atendimentos. Cada atendimento adicional soma{" "}
-        <span className="font-bold text-green-600">R$ 15</span> ao seu bônus.
+        Você recebe <span className="font-bold">R$ 40</span> ao atingir a meta
+        diária de 5 atendimentos. Cada adicional soma{" "}
+        <span className="font-bold">R$ 15</span>.
        </>
       ) : (
        <>
-        Você recebe <span className="font-bold text-green-600">R$ 40</span> ao
-        atingir a meta diária de 6 atendimentos. Cada atendimento adicional soma{" "}
-        <span className="font-bold text-green-600">R$ 15</span> ao seu bônus.
+        Você recebe <span className="font-bold">R$ 40</span> ao atingir a meta
+        diária de 6 atendimentos. Cada adicional soma{" "}
+        <span className="font-bold">R$ 15</span>.
        </>
       )}
      </p>
     </div>
 
-    <div className="border-b border-gray-200 pb-4">
-     <h3 className="text-base sm:text-lg font-semibold text-gray-900">
-      Exemplo de Cálculo
+    {/* Exemplo de Cálculo */}
+    <div className="mt-6">
+     <h3 className="text-lg font-semibold text-gray-800 mb-3">
+      Exemplo Prático
      </h3>
-     <div className="mt-2 bg-gray-50 p-4 rounded-lg text-sm sm:text-base">
+     <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
       {type === "motorcycle" ? (
        <>
-        <p>
-         5 atendimentos (meta) → <span className="font-bold">R$ 40</span>
+        <p className="flex justify-between border-b border-gray-200 pb-2">
+         <span>5 atendimentos (meta):</span>
+         <span className="font-bold">R$ 40</span>
         </p>
-        <p>
-         + 4 atendimentos adicionais → <span className="font-bold">R$ 60</span>{" "}
-         (4 × R$ 15)
+        <p className="flex justify-between border-b border-gray-200 py-2">
+         <span>+ 4 atendimentos extras:</span>
+         <span className="font-bold">R$ 60</span>
         </p>
-        <p className="font-bold text-green-600 border-t border-gray-200 pt-2 mt-2">
-         Total para 9 atendimentos: R$ 100
+        <p className="flex justify-between pt-2 font-bold text-green-600">
+         <span>Total (9 atendimentos):</span>
+         <span>R$ 100</span>
         </p>
        </>
       ) : (
        <>
-        <p>
-         6 atendimentos (meta) → <span className="font-bold">R$ 40</span>
+        <p className="flex justify-between border-b border-gray-200 pb-2">
+         <span>6 atendimentos (meta):</span>
+         <span className="font-bold">R$ 40</span>
         </p>
-        <p>
-         + 4 atendimentos adicionais → <span className="font-bold">R$ 60</span>{" "}
-         (4 × R$ 15)
+        <p className="flex justify-between border-b border-gray-200 py-2">
+         <span>+ 4 atendimentos extras:</span>
+         <span className="font-bold">R$ 60</span>
         </p>
-        <p className="font-bold text-green-600 border-t border-gray-200 pt-2 mt-2">
-         Total para 10 atendimentos: R$ 100
+        <p className="flex justify-between pt-2 font-bold text-green-600">
+         <span>Total (10 atendimentos):</span>
+         <span>R$ 100</span>
         </p>
        </>
       )}
      </div>
     </div>
+   </div>
 
-    <div className="border-b border-gray-200 pb-4">
-     <h3 className="text-base sm:text-lg font-semibold text-gray-900">
-      Casos Especiais
-     </h3>
-     <ul className="mt-2 space-y-2 list-disc pl-5 text-sm sm:text-base">
-      {rules.specialCases.map((item, index) => (
-       <li key={index} className="text-gray-700">
-        {item}
-       </li>
-      ))}
-     </ul>
-    </div>
+   {/* Casos Especiais */}
+   <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+    <h2 className="text-xl font-bold text-gray-800 mb-4">Casos Especiais</h2>
+    <ul className="space-y-3">
+     {rules.specialCases.map((item, index) => (
+      <li key={index} className="flex items-start">
+       <span className="bg-green-100 text-green-800 rounded-full p-1 mr-3">
+        <svg
+         className="w-4 h-4"
+         fill="none"
+         stroke="currentColor"
+         viewBox="0 0 24 24"
+        >
+         <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M5 13l4 4L19 7"
+         />
+        </svg>
+       </span>
+       <span className="text-gray-700">{item}</span>
+      </li>
+     ))}
+    </ul>
+   </div>
 
-    <div>
-     <h3 className="text-base sm:text-lg font-semibold text-gray-900 flex items-center gap-2">
-      <FiAlertTriangle className="text-yellow-500" />
-      Fatores que Modificam o Cálculo do Bônus
-     </h3>
-     <ul className="mt-2 space-y-2 list-disc pl-5 text-sm sm:text-base">
-      {rules.penaltyFactors.map((item, index) => (
-       <li key={index} className="text-gray-700">
-        {item}
-       </li>
-      ))}
-     </ul>
+   {/* Fatores de Modificação */}
+   <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+    <div className="flex items-center mb-4">
+     <FiAlertTriangle className="text-yellow-500 text-xl mr-2" />
+     <h2 className="text-xl font-bold text-gray-800">
+      Fatores que Afetam o Bônus
+     </h2>
     </div>
+    <ul className="space-y-3">
+     {rules.penaltyFactors.map((item, index) => (
+      <li key={index} className="flex items-start">
+       <span className="bg-red-100 text-red-800 rounded-full p-1 mr-3">
+        <svg
+         className="w-4 h-4"
+         fill="none"
+         stroke="currentColor"
+         viewBox="0 0 24 24"
+        >
+         <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M6 18L18 6M6 6l12 12"
+         />
+        </svg>
+       </span>
+       <span className="text-gray-700">{item}</span>
+      </li>
+     ))}
+    </ul>
    </div>
   </div>
  );
@@ -141,42 +177,77 @@ const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
 
 export function Vehicle() {
  const selectedVehicle = useVehicleSelection((s) => s.selectedVehicle);
+ const setSelectedVehicle = useVehicleSelection((s) => s.setSelectedVehicle);
 
  return (
-  <div className="flex flex-col w-full items-center py-6 px-4 sm:px-6 lg:px-8 min-h-screen">
+  <div className="flex flex-col items-center min-h-screen bg-gray-50 py-8 px-4 sm:px-6">
    <div className="w-full max-w-2xl">
-    <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 text-center">
-     Regras do Bônus
-    </h1>
-    <p className="text-sm sm:text-base text-gray-600 mb-8 text-center">
-     Entenda como seu bônus é calculado e quais fatores podem afetá-lo
-    </p>
-    <Tabs value={selectedVehicle} className="w-full">
-     <TabsList className="grid w-full grid-cols-2 gap-2 bg-gray-100 rounded-lg p-1">
-      <TabsTrigger
-       value="motorcycle"
-       className="flex items-center gap-2 data-[state=active]:bg-green-600 data-[state=active]:text-white cursor-pointer px-2 py-1 text-sm sm:text-base"
-       onClick={() =>
-        useVehicleSelection.getState().setSelectedVehicle("motorcycle")
-       }
-      >
-       <MotorcycleIcon /> Moto
-      </TabsTrigger>
-      <TabsTrigger
-       value="car"
-       className="flex items-center gap-2 data-[state=active]:bg-green-600 data-[state=active]:text-white cursor-pointer px-2 py-1 text-sm sm:text-base"
-       onClick={() => useVehicleSelection.getState().setSelectedVehicle("car")}
-      >
-       <CarIcon /> Carro
-      </TabsTrigger>
-     </TabsList>
-     <TabsContent value="motorcycle" className="mt-6">
-      <BonusRules type="motorcycle" />
-     </TabsContent>
-     <TabsContent value="car" className="mt-6">
-      <BonusRules type="car" />
-     </TabsContent>
-    </Tabs>
+    {/* Header */}
+    <div className="text-center mb-8">
+     <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
+      Regras do Bônus por Veículo
+     </h1>
+     <p className="text-gray-600">
+      Selecione seu tipo de veículo para ver as regras específicas
+     </p>
+    </div>
+
+    {/* Vehicle Selection */}
+    <div className="grid grid-cols-2 gap-4 mb-8">
+     <button
+      onClick={() => setSelectedVehicle("motorcycle")}
+      className={`
+              flex flex-col items-center justify-center p-6 rounded-xl
+              transition-all duration-200 border-2
+              ${
+               selectedVehicle === "motorcycle"
+                ? "bg-green-600 text-white border-green-600 shadow-lg"
+                : "bg-white text-gray-700 border-gray-200 hover:border-green-400"
+              }
+            `}
+     >
+      <MotorcycleIcon className="text-3xl mb-2" />
+      <span className="font-medium">Moto</span>
+     </button>
+
+     <button
+      onClick={() => setSelectedVehicle("car")}
+      className={`
+              flex flex-col items-center justify-center p-6 rounded-xl
+              transition-all duration-200 border-2
+              ${
+               selectedVehicle === "car"
+                ? "bg-green-600 text-white border-green-600 shadow-lg"
+                : "bg-white text-gray-700 border-gray-200 hover:border-green-400"
+              }
+            `}
+     >
+      <CarIcon className="text-3xl mb-2" />
+      <span className="font-medium">Carro</span>
+     </button>
+    </div>
+
+    {/* Selected Vehicle Info */}
+    {selectedVehicle && (
+     <div className="bg-green-50 p-4 rounded-lg border border-green-200 mb-8 flex items-start">
+      <FaInfoCircle className="text-green-600 mt-1 mr-3 flex-shrink-0" />
+      <div>
+       <p className="text-green-800 font-medium">
+        Veículo selecionado:{" "}
+        <span className="font-bold">
+         {selectedVehicle === "motorcycle" ? "Moto" : "Carro"}
+        </span>
+       </p>
+       <p className="text-green-600 text-sm mt-1">
+        Veja abaixo as regras específicas para seu veículo
+       </p>
+      </div>
+     </div>
+    )}
+
+    {/* Rules Content */}
+    {selectedVehicle === "motorcycle" && <BonusRules type="motorcycle" />}
+    {selectedVehicle === "car" && <BonusRules type="car" />}
    </div>
   </div>
  );

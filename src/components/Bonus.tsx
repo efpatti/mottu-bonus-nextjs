@@ -1,4 +1,3 @@
-// Bonus.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -7,7 +6,6 @@ import {
  FiDollarSign,
  FiCalendar,
  FiCheckCircle,
- FiXCircle,
  FiChevronDown,
  FiChevronUp,
 } from "react-icons/fi";
@@ -18,7 +16,6 @@ type TableRow = {
  dias: string;
  recolhido: number;
  pago: number;
- insucesso: string;
 };
 
 type BonusRow = {
@@ -27,7 +24,7 @@ type BonusRow = {
 };
 
 const Bonus: React.FC = () => {
- const [activeTab, setActiveTab] = useState<"main" | "bonus">("main");
+ const [activeTab, setActiveTab] = useState<"bonus" | "main">("bonus");
  const [showInfo, setShowInfo] = useState(false);
  const [expandedRows, setExpandedRows] = useState<number[]>([]);
  const selectedVehicle = useVehicleSelection((s) => s.selectedVehicle);
@@ -43,24 +40,24 @@ const Bonus: React.FC = () => {
  const getMainTableData = (): TableRow[] => {
   if (selectedVehicle === "motorcycle") {
    return [
-    { dias: "1 a 7", recolhido: 1, pago: 2, insucesso: "1/2 até 5 serviços" },
-    { dias: "8 a 15", recolhido: 3, pago: 4, insucesso: "1/2 até 5 serviços" },
-    { dias: "15 a 30", recolhido: 4, pago: 5, insucesso: "1/2 até 5 serviços" },
+    { dias: "1 a 7", recolhido: 1, pago: 2 },
+    { dias: "8 a 15", recolhido: 3, pago: 4 },
+    { dias: "15 a 30", recolhido: 4, pago: 5 },
    ];
   }
   return [
-   { dias: "1 a 7", recolhido: 1, pago: 2, insucesso: "1/2 até 6 serviços" },
-   { dias: "8 a 15", recolhido: 3, pago: 4, insucesso: "1/2 até 6 serviços" },
-   { dias: "15 a 30", recolhido: 4, pago: 5, insucesso: "1/2 até 6 serviços" },
+   { dias: "1 a 7", recolhido: 1, pago: 2 },
+   { dias: "8 a 15", recolhido: 3, pago: 4 },
+   { dias: "15 a 30", recolhido: 4, pago: 5 },
   ];
  };
 
  const bonusTableData: BonusRow[] = [
   {
-   tipo: selectedVehicle === "motorcycle" ? "5 serviços" : "6 serviços",
+   tipo: selectedVehicle === "motorcycle" ? "5 pontos" : "6 pontos",
    valor: "R$ 40,00",
   },
-  { tipo: "serviço extra", valor: "R$ 15,00" },
+  { tipo: "+1", valor: "R$ 15,00" },
  ];
 
  return (
@@ -107,17 +104,6 @@ const Bonus: React.FC = () => {
 
    <div className="mb-6 flex border-b border-gray-200 overflow-x-auto">
     <button
-     onClick={() => setActiveTab("main")}
-     className={`whitespace-nowrap px-4 py-2 font-medium flex items-center transition-colors text-sm sm:text-base ${
-      activeTab === "main"
-       ? "text-green-600 border-b-2 border-green-600"
-       : "text-gray-500 hover:text-gray-700"
-     }`}
-    >
-     <FiCalendar className="mr-2" />
-     Critérios
-    </button>
-    <button
      onClick={() => setActiveTab("bonus")}
      className={`whitespace-nowrap px-4 py-2 font-medium flex items-center transition-colors text-sm sm:text-base ${
       activeTab === "bonus"
@@ -127,6 +113,17 @@ const Bonus: React.FC = () => {
     >
      <FiDollarSign className="mr-2" />
      Valores
+    </button>
+    <button
+     onClick={() => setActiveTab("main")}
+     className={`whitespace-nowrap px-4 py-2 font-medium flex items-center transition-colors text-sm sm:text-base ${
+      activeTab === "main"
+       ? "text-green-600 border-b-2 border-green-600"
+       : "text-gray-500 hover:text-gray-700"
+     }`}
+    >
+     <FiCalendar className="mr-2" />
+     Critérios
     </button>
    </div>
 
@@ -142,7 +139,6 @@ const Bonus: React.FC = () => {
           Serviço Recolhido
          </th>
          <th className="px-4 py-3 text-left font-semibold">Serviço Pago</th>
-         <th className="px-4 py-3 text-left font-semibold">Insucesso</th>
         </tr>
        </thead>
        <tbody className="divide-y divide-gray-200">
@@ -152,16 +148,13 @@ const Bonus: React.FC = () => {
           <td className="px-4 py-3 whitespace-nowrap">
            <div className="flex items-center gap-1">
             <FiCheckCircle className="text-green-500" /> {row.recolhido}
+            {row.recolhido > 1 ? " pontos" : " ponto"}
            </div>
           </td>
           <td className="px-4 py-3 whitespace-nowrap">
            <div className="flex items-center gap-1">
             <FiCheckCircle className="text-green-500" /> {row.pago}
-           </div>
-          </td>
-          <td className="px-4 py-3 whitespace-nowrap">
-           <div className="flex items-center gap-1">
-            <FiXCircle className="text-red-500" /> {row.insucesso}
+            {row.pago > 1 ? " pontos" : " ponto"}
            </div>
           </td>
          </tr>
@@ -202,13 +195,6 @@ const Bonus: React.FC = () => {
            <div>
             <div className="font-medium">Serviço Pago</div>
             <div>{row.pago}</div>
-           </div>
-          </div>
-          <div className="py-2 flex items-center gap-2">
-           <FiXCircle className="text-red-500 flex-shrink-0" />
-           <div>
-            <div className="font-medium">Insucesso</div>
-            <div>{row.insucesso}</div>
            </div>
           </div>
          </div>
@@ -274,9 +260,14 @@ const Bonus: React.FC = () => {
    <div className="mt-6 p-4 sm:p-6 bg-gray-50 rounded-lg text-sm sm:text-base">
     <h3 className="font-medium text-gray-800 mb-2">Observações importantes:</h3>
     <ul className="text-gray-600 space-y-1 list-disc pl-5">
-     <li>Atendimentos de retirada evitados por pagamento contam em dobro</li>
-     <li>Trocas resolvidas no local contam em dobro (apenas para motos)</li>
-     <li>Ultrapassar 90 km/h resulta em perda do bônus diário</li>
+     <li>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, maxime
+      vitae saepe temporibus error, eligendi eaque vero
+     </li>
+     <li>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, maxime
+      vitae saepe temporibus error, eligendi eaque vero
+     </li>
     </ul>
    </div>
   </div>
