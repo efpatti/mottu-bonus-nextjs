@@ -9,7 +9,7 @@ import { Benefits } from "@/sections/Benefits";
 
 export default function HomePage() {
  return (
-  <main className="min-h-screen bg-white">
+  <main className="h-full bg-white">
    {/* Level 0 - Introduction (botão "1" na navbar) */}
    <Section level={0}>
     <Introduction />
