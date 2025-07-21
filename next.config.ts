@@ -9,11 +9,14 @@ const nextConfig: NextConfig = {
   output: "export",
 
   /**
-   * Set base path. This is usually the slug of your repository.
+   * Set base path conditionally based on environment.
+   * Only applies basePath in production/build, not in development.
    *
    * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
    */
-  basePath: "/mottu-bonus-nextjs",
+  ...(process.env.NODE_ENV === "production" && {
+    basePath: "/mottu-bonus-nextjs",
+  }),
 
   /**
    * Disable server-based image optimization. Next.js does not support
