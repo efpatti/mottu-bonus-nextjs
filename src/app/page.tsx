@@ -16,7 +16,7 @@ export default function HomePage() {
  const motorcycleRules = {
   penaltyFactors: [
    "Ultrapassar 90 km/h: perde o bônus diário",
-   "Ultrapassar 120 km/h: perde metade do bônus mensal",
+   "Ultrapassar 120 km/h: perde a quinzena do bônus mensal",
    "Faltas injustificadas: perde o bônus quinzenal",
    "Atrasos ou sair antes do horário: penalidade no bônus diário (melhor dia da quinzena)",
    "Perda de ferramenta: desconto no bônus se positivo",
