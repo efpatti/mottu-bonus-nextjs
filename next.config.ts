@@ -33,13 +33,6 @@ const nextConfig: NextConfig = {
   * Configure trailing slash for static exports compatibility
   */
  trailingSlash: true,
-
- /**
-  * Ensure CSS is properly handled in static exports
-  */
- experimental: {
-  optimizeCss: true,
- },
 };
 
 export default nextConfig;
