@@ -2,7 +2,7 @@
 
 import { Section } from "@/components/Section";
 import { Introduction } from "@/sections/Introduction";
-import { Eligibility } from "@/sections/Eligibility";
+import { Eligibility } from "@/sections/Eligibility1";
 import { Vehicle } from "@/sections/Vehicle";
 import { NavigationButtons } from "@/components/NavigationButtons";
 

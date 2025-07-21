@@ -30,7 +30,7 @@ export const Benefits = () => {
         Bônus financeiro mensal
        </span>
        <p className="mt-2 text-green-700">
-        Recompensa tangível pelo seu desempenho
+        Recompensa financeira pelo seu desempenho
        </p>
       </li>
 
@@ -39,10 +39,10 @@ export const Benefits = () => {
         <FaCheckCircle className="text-white text-4xl" />
        </div>
        <span className="text-lg font-semibold text-green-900">
-        Incentivo para melhoria contínua
+        Crescimento na Carreira
        </span>
        <p className="mt-2 text-green-700">
-        Ferramentas para seu crescimento profissional
+        Visibilidade para futuras promoções e oportunidades
        </p>
       </li>
      </ul>

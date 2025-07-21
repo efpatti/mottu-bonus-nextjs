@@ -37,7 +37,7 @@ export const Navbar = () => {
  // Debug log
  console.log(`Navbar: currentLevel=${currentLevel}`);
 
- const steps = [1, 2, 3, 4];
+ const steps = [1, 2, 3, 4, 5, 6];
 
  const handleStepClick = (index: number) => {
   console.log(`Clicking step ${index + 1}, setting level to ${index}`);
@@ -46,7 +46,7 @@ export const Navbar = () => {
 
  const renderProgressSteps = () => (
   <div
-   className="flex items-center justify-center gap-2 sm:gap-4 mb-0 px-2 sm:px-4 w-full overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 overflow-hidden"
+   className="flex items-center justify-center gap-2 sm:gap-4 mb-0 px-2 sm:px-4 w-full overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 overflow-hidden scale-1/2"
    style={{ minWidth: 0 }}
   >
    {steps.map((step, index) => (

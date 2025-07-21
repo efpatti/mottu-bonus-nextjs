@@ -1,4 +1,4 @@
-import { Eligibility } from "@/sections/Eligibility";
+import { Eligibility } from "@/sections/Eligibility1";
 
 export default function EligibilityPage() {
  return (

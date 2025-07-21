@@ -7,6 +7,7 @@ import {
 import { FiAlertTriangle } from "react-icons/fi";
 import { useVehicleSelection } from "@/hooks/useVehicleSelection";
 import Bonus from "@/components/Bonus";
+import Fatores from "./Fatores";
 
 type VehicleType = "motorcycle" | "car";
 
@@ -140,37 +141,7 @@ const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
     </ul>
    </div>
 
-   {/* Fatores de Modificação */}
-   <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-    <div className="flex items-center mb-4">
-     <FiAlertTriangle className="text-yellow-500 text-xl mr-2" />
-     <h2 className="text-xl font-bold text-gray-800">
-      Fatores que Afetam o Bônus
-     </h2>
-    </div>
-    <ul className="space-y-3">
-     {rules.penaltyFactors.map((item, index) => (
-      <li key={index} className="flex items-start">
-       <span className="bg-red-100 text-red-800 rounded-full p-1 mr-3">
-        <svg
-         className="w-4 h-4"
-         fill="none"
-         stroke="currentColor"
-         viewBox="0 0 24 24"
-        >
-         <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M6 18L18 6M6 6l12 12"
-         />
-        </svg>
-       </span>
-       <span className="text-gray-700">{item}</span>
-      </li>
-     ))}
-    </ul>
-   </div>
+   {/* Nova Seção: Fatores que Afetam o Bônus */}
   </div>
  );
 };
