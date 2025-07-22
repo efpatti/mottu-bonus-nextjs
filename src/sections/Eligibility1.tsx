@@ -1,3 +1,4 @@
+"use client";
 import { FaUsers, FaClock, FaSearch } from "react-icons/fa";
 import { useState, useMemo } from "react";
 import { filiais, filiaisProps } from "@/data/filiais";
