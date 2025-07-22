@@ -48,7 +48,7 @@ const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
 
  return (
   <div className="space-y-6">
-   <Bonus />
+   <Bonus vehicleType={type} />
 
    {/* Seção de Cálculo do Bônus */}
    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
