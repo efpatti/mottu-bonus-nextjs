@@ -174,6 +174,9 @@ export const Navbar = () => {
  const handleStepClick = (index: number) => {
   setCurrentLevel(index);
   setMenuOpen(false);
+  if (typeof window !== "undefined") {
+   window.scrollTo({ top: 0, behavior: "smooth" });
+  }
  };
 
  return (
