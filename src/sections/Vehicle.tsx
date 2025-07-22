@@ -113,33 +113,33 @@ const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
    </div>
 
    {/* Casos Especiais */}
-   <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-    <h2 className="text-xl font-bold text-gray-800 mb-4">Casos Especiais</h2>
-    <ul className="space-y-3">
-     {rules.specialCases.map((item, index) => (
-      <li key={index} className="flex items-start">
-       <span className="bg-green-100 text-green-800 rounded-full p-1 mr-3">
-        <svg
-         className="w-4 h-4"
-         fill="none"
-         stroke="currentColor"
-         viewBox="0 0 24 24"
-        >
-         <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M5 13l4 4L19 7"
-         />
-        </svg>
-       </span>
-       <span className="text-gray-700">{item}</span>
-      </li>
-     ))}
-    </ul>
-   </div>
-
-   {/* Nova Seção: Fatores que Afetam o Bônus */}
+   {type === "car" && (
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+     <h2 className="text-xl font-bold text-gray-800 mb-4">Casos Especiais</h2>
+     <ul className="space-y-3">
+      {rules.specialCases.map((item, index) => (
+       <li key={index} className="flex items-start">
+        <span className="bg-green-100 text-green-800 rounded-full p-1 mr-3">
+         <svg
+          className="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+         >
+          <path
+           strokeLinecap="round"
+           strokeLinejoin="round"
+           strokeWidth="2"
+           d="M5 13l4 4L19 7"
+          />
+         </svg>
+        </span>
+        <span className="text-gray-700">{item}</span>
+       </li>
+      ))}
+     </ul>
+    </div>
+   )}
   </div>
  );
 };
