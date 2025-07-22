@@ -7,11 +7,11 @@ export interface BonusProps {
 }
 
 const mainTableDataCar = [
-  { dias: "1 a 7", recolhido: 2, pago: 3 },
-  { dias: "8 a 15", recolhido: 3, pago: 4 },
-  { dias: "16 a 30", recolhido: 4, pago: 5 },
-  { dias: "31 a 50", recolhido: 5, pago: 6 },
-  { dias: "> 50", recolhido: 6, pago: 7 },
+ { dias: "1 a 7", recolhido: 1, pago: 2 },
+ { dias: "8 a 15", recolhido: 2, pago: 3 },
+ { dias: "16 a 30", recolhido: 3, pago: 4 },
+ { dias: "31 a 50", recolhido: 4, pago: 5 },
+ { dias: "> 50", recolhido: 5, pago: 6 },
 ];
 
 const mainTableDataMoto = [
