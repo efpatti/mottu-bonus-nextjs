@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { totalSteps } from "@/data/steps";
 
 export type VehicleType = "motorcycle" | "car";
 
@@ -17,32 +18,75 @@ export const useLevelStore = create<LevelState>((set, get) => ({
  currentLevel: 0,
  selectedVehicle: "motorcycle",
 
- setCurrentLevel: (level: number) => set({ currentLevel: level }),
+ setCurrentLevel: (level: number) => {
+  console.log(`[LevelStore] setCurrentLevel:`, level);
+  set({ currentLevel: level });
+ },
 
- setSelectedVehicle: (vehicle: VehicleType) =>
-  set({ selectedVehicle: vehicle }),
+ setSelectedVehicle: (vehicle: VehicleType) => {
+  console.log(`[LevelStore] setSelectedVehicle:`, vehicle);
+  set({ selectedVehicle: vehicle });
+ },
 
  nextLevel: () => {
   const { currentLevel, canGoNext } = get();
-  if (canGoNext()) {
+  const canNext = canGoNext();
+  console.log(
+   `[LevelStore] nextLevel called. currentLevel:`,
+   currentLevel,
+   `canGoNext:`,
+   canNext
+  );
+  if (canNext) {
    set({ currentLevel: currentLevel + 1 });
+   console.log(`[LevelStore] nextLevel: avançou para`, currentLevel + 1);
+  } else {
+   console.log(`[LevelStore] nextLevel: não avançou, já está no último nível.`);
   }
  },
 
  previousLevel: () => {
   const { currentLevel, canGoPrevious } = get();
-  if (canGoPrevious()) {
+  const canPrev = canGoPrevious();
+  console.log(
+   `[LevelStore] previousLevel called. currentLevel:`,
+   currentLevel,
+   `canGoPrevious:`,
+   canPrev
+  );
+  if (canPrev) {
    set({ currentLevel: currentLevel - 1 });
+   console.log(`[LevelStore] previousLevel: voltou para`, currentLevel - 1);
+  } else {
+   console.log(
+    `[LevelStore] previousLevel: não voltou, já está no primeiro nível.`
+   );
   }
  },
 
  canGoNext: () => {
   const { currentLevel } = get();
-  return currentLevel < 3; // Assumindo 4 níveis (0-3)
+  const result = currentLevel < totalSteps - 1;
+  console.log(
+   `[LevelStore] canGoNext? currentLevel:`,
+   currentLevel,
+   `totalSteps:`,
+   totalSteps,
+   `=>`,
+   result
+  );
+  return result;
  },
 
  canGoPrevious: () => {
   const { currentLevel } = get();
-  return currentLevel > 0;
+  const result = currentLevel > 0;
+  console.log(
+   `[LevelStore] canGoPrevious? currentLevel:`,
+   currentLevel,
+   `=>`,
+   result
+  );
+  return result;
  },
 }));
