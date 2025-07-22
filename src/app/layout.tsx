@@ -34,7 +34,7 @@ export default function RootLayout({
    >
     <LevelProvider>
      <Navbar />
-     <main>{children}</main>
+     <main className="min-h-screen overflow-y-scroll">{children}</main>
     </LevelProvider>
    </body>
   </html>

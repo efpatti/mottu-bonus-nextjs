@@ -24,9 +24,9 @@ const ProgressStep = ({
  isDesktop = false,
 }: ProgressStepProps) => (
  <motion.button
-  className={`flex items-center gap-2 p-3 rounded-lg ${
-   isDesktop ? "px-4" : "w-full text-left"
-  } transition-colors ${
+  className={`flex items-center gap-1 ${
+   isDesktop ? "px-2 py-1 text-sm" : "p-3 w-full text-left"
+  } rounded-lg transition-colors ${
    isActive
     ? "bg-green-600/10 text-green-500 border-l-4 border-green-500"
     : "text-gray-400 hover:bg-gray-800/50"
@@ -36,13 +36,23 @@ const ProgressStep = ({
   whileTap={{ scale: 0.98 }}
  >
   <span
-   className={`flex items-center justify-center w-6 h-6 rounded-full ${
+   className={`flex items-center justify-center ${
+    isDesktop ? "w-5 h-5 text-xs" : "w-6 h-6"
+   } rounded-full ${
     isActive ? "bg-green-500 text-white" : "bg-gray-700 text-gray-400"
    }`}
   >
    {stepNumber}
   </span>
-  <span className="font-medium">{label}</span>
+  <span
+   className={
+    isDesktop
+     ? "font-medium text-xs min-w-[80px] max-w-[110px] truncate inline-block"
+     : "font-medium"
+   }
+  >
+   {label}
+  </span>
  </motion.button>
 );
 
