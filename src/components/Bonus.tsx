@@ -27,8 +27,8 @@ const bonusTableDataMoto = [
 ];
 
 const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
- const [section, setSection] = useState("Critérios");
- const criteriosRef = useRef<HTMLDivElement | null>(null);
+ const [section, setSection] = useState("Acelerador");
+ const aceleradorRef = useRef<HTMLDivElement | null>(null);
  const valoresRef = useRef<HTMLDivElement | null>(null);
 
  const getMainTableData = () =>
@@ -42,10 +42,10 @@ const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
     if (entry.target === valoresRef.current && entry.isIntersecting) {
      setSection("Valores");
     } else if (
-     criteriosRef.current &&
-     criteriosRef.current.getBoundingClientRect().top <= 100
+     aceleradorRef.current &&
+     aceleradorRef.current.getBoundingClientRect().top <= 100
     ) {
-     setSection("Critérios");
+     setSection("Acelerador");
     }
    },
    { threshold: 0.5 }
@@ -70,9 +70,9 @@ const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
    </div>
 
    <section className="py-8 px-4 sm:px-6 max-w-4xl mx-auto space-y-10">
-    {/* Critérios */}
-    <div ref={criteriosRef}>
-     <h3 className="text-lg font-semibold text-gray-800 mb-4">Critérios</h3>
+    {/* Acelerador */}
+    <div ref={aceleradorRef}>
+     <h3 className="text-lg font-semibold text-gray-800 mb-4">Acelerador</h3>
      <div className="overflow-x-auto">
       <table className="min-w-full text-sm">
        <thead>

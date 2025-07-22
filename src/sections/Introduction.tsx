@@ -1,7 +1,12 @@
+import { scrollToTop } from "@/lib/scrollToTop";
 import { useLevelContext } from "@/providers/LevelProvider";
 
 export const Introduction = () => {
  const { nextLevel } = useLevelContext();
+ const nextClick = () => {
+  nextLevel();
+  scrollToTop();
+ };
  return (
   <>
    {/* Hero Section */}
@@ -15,7 +20,7 @@ export const Introduction = () => {
      </p>
      <button
       className="mt-4 px-6 py-2 bg-white text-green-600 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition text-xl md:text-2xl"
-      onClick={nextLevel}
+      onClick={nextClick}
      >
       Saiba Mais
      </button>

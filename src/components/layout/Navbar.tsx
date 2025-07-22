@@ -6,6 +6,7 @@ import { useLevelContext } from "@/providers/LevelProvider";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Steps } from "@/data/steps";
+import { scrollToTop } from "@/lib/scrollToTop";
 
 // Step-related components and types
 interface ProgressStepProps {
@@ -174,9 +175,7 @@ export const Navbar = () => {
  const handleStepClick = (index: number) => {
   setCurrentLevel(index);
   setMenuOpen(false);
-  if (typeof window !== "undefined") {
-   window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+  scrollToTop();
  };
 
  return (

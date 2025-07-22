@@ -2,6 +2,7 @@
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useLevelContext } from "@/providers/LevelProvider";
+import { scrollToTop } from "@/lib/scrollToTop";
 import { useEffect, useState } from "react";
 
 interface NavigationButtonsProps {
@@ -38,26 +39,29 @@ export const NavigationButtons = ({
     {!showOnlyNext && (
      <button
       type="button"
-      className="cursor-pointer flex items-center gap-2 px-6 py-2 rounded-lg font-semibold text-black bg-white border border-black hover:bg-green-50 hover:text-green-700 focus:ring-2 focus:ring-green-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-      onClick={previousLevel}
+      className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100 border border-gray-200"
+      onClick={() => {
+       previousLevel();
+       scrollToTop();
+      }}
       disabled={!canGoPrevious()}
-      aria-label="Voltar para etapa anterior"
      >
-      <FaChevronLeft className="text-green-600" />
-      {customPreviousLabel}
+      <FaChevronLeft />
+      <span>{customPreviousLabel}</span>
      </button>
     )}
-
     {!showOnlyPrevious && (
      <button
       type="button"
-      className="cursor-pointer flex items-center gap-2 px-6 py-2 rounded-lg font-semibold text-white bg-green-600 hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-      onClick={nextLevel}
+      className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700 border border-green-600"
+      onClick={() => {
+       nextLevel();
+       scrollToTop();
+      }}
       disabled={!canGoNext()}
-      aria-label="Avançar para próxima etapa"
      >
-      {customNextLabel}
-      <FaChevronRight className="text-white" />
+      <span>{customNextLabel}</span>
+      <FaChevronRight />
      </button>
     )}
    </div>
