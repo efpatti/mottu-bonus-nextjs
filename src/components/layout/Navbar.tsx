@@ -5,6 +5,7 @@ import { getAssetPath } from "@/utils/assets";
 import { useLevelContext } from "@/providers/LevelProvider";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Steps } from "@/data/steps";
 
 // Step-related components and types
 interface ProgressStepProps {
@@ -64,7 +65,7 @@ const ProgressSteps = ({
 
  return (
   <div className={containerClasses}>
-   {steps.map((step, index) => (
+   {steps.map((step: { stepNumber: number; label: string }, index: number) => (
     <ProgressStep
      key={step.stepNumber}
      stepNumber={step.stepNumber}
@@ -157,14 +158,8 @@ export const Navbar = () => {
  const { currentLevel, setCurrentLevel } = useLevelContext();
  const [menuOpen, setMenuOpen] = useState(false);
 
- const steps = [
-  { stepNumber: 1, label: "Introdução" },
-  { stepNumber: 2, label: "Benefícios" },
-  { stepNumber: 3, label: "Elegibilidade 1" },
-  { stepNumber: 4, label: "Elegibilidade 2" },
-  { stepNumber: 5, label: "Regras do Bônus" },
-  { stepNumber: 6, label: "Fatores de Penalidade" },
- ];
+ // Use imported Steps from '@/data/steps'
+ const steps = Steps;
 
  const handleStepClick = (index: number) => {
   setCurrentLevel(index);

@@ -15,8 +15,8 @@ interface BonusRulesProps {
 
 const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
  const motorcycleRules = {
-  baseBonus: "R$ 40 por atingir 5 serviço diários",
-  additionalBonus: "R$ 15 para cada serviço adicional além de 5",
+  baseBonus: "R$ 40 por atingir 5 pontos diários",
+  additionalBonus: "R$ 15 para cada ponto adicional além de 5",
   specialCases: [
    "Serviço de retirada evitados por pagamento do cliente contam em dobro",
    "Trocas resolvidas no local contam em dobro",
@@ -31,7 +31,7 @@ const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
  };
 
  const carRules = {
-  baseBonus: "R$ 40 por atingir 6 serviço diários",
+  baseBonus: "R$ 40 por atingir 6 serviços diários",
   additionalBonus: "R$ 15 para cada serviço adicional além de 6",
   specialCases: [
    "Serviço de retirada evitados por pagamento do cliente contam em dobro",
@@ -49,68 +49,6 @@ const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
  return (
   <div className="space-y-6">
    <Bonus vehicleType={type === "motorcycle" ? "moto" : "car"} />
-
-   {/* Seção de Cálculo do Bônus */}
-   <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-    <h2 className="text-xl font-bold text-gray-800 mb-4">Cálculo do Bônus</h2>
-    <div className="bg-green-50 p-4 rounded-lg border border-green-100">
-     <p className="text-green-800">
-      {type === "motorcycle" ? (
-       <>
-        Você recebe <span className="font-bold">R$ 40</span> ao atingir a meta
-        diária de 5 serviços. Cada adicional soma{" "}
-        <span className="font-bold">R$ 15</span>.
-       </>
-      ) : (
-       <>
-        Você recebe <span className="font-bold">R$ 40</span> ao atingir a meta
-        diária de 6 serviços. Cada adicional soma{" "}
-        <span className="font-bold">R$ 15</span>.
-       </>
-      )}
-     </p>
-    </div>
-
-    {/* Exemplo de Cálculo */}
-    <div className="mt-6">
-     <h3 className="text-lg font-semibold text-gray-800 mb-3">
-      Exemplo Prático
-     </h3>
-     <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-      {type === "motorcycle" ? (
-       <>
-        <p className="flex justify-between border-b border-gray-200 pb-2">
-         <span>5 serviços (meta):</span>
-         <span className="font-bold">R$ 40</span>
-        </p>
-        <p className="flex justify-between border-b border-gray-200 py-2">
-         <span>+ 4 serviços extras:</span>
-         <span className="font-bold">R$ 60</span>
-        </p>
-        <p className="flex justify-between pt-2 font-bold text-green-600">
-         <span>Total (9 serviços):</span>
-         <span>R$ 100</span>
-        </p>
-       </>
-      ) : (
-       <>
-        <p className="flex justify-between border-b border-gray-200 pb-2">
-         <span>6 serviços (meta):</span>
-         <span className="font-bold">R$ 40</span>
-        </p>
-        <p className="flex justify-between border-b border-gray-200 py-2">
-         <span>+ 4 serviços extras:</span>
-         <span className="font-bold">R$ 60</span>
-        </p>
-        <p className="flex justify-between pt-2 font-bold text-green-600">
-         <span>Total (10 serviços):</span>
-         <span>R$ 100</span>
-        </p>
-       </>
-      )}
-     </div>
-    </div>
-   </div>
 
    {/* Casos Especiais */}
    {type === "car" && (

@@ -9,6 +9,7 @@ import { NavigationButtons } from "@/components/NavigationButtons";
 import { Benefits } from "@/sections/Benefits";
 import Fatores from "@/sections/Fatores";
 import { useVehicleSelection } from "@/hooks/useVehicleSelection";
+import BonusCalculation from "@/sections/BonusCalculation";
 
 export default function HomePage() {
  const selectedVehicle = useVehicleSelection((s) => s.selectedVehicle);
@@ -56,7 +57,13 @@ export default function HomePage() {
     <Vehicle />
     <NavigationButtons />
    </Section>
+
    <Section level={5}>
+    <BonusCalculation type={selectedVehicle} />
+    <NavigationButtons />
+   </Section>
+
+   <Section level={6}>
     <Fatores penaltyFactors={rules.penaltyFactors} />
     <NavigationButtons showOnlyPrevious />
    </Section>
