@@ -2,6 +2,7 @@
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useLevelContext } from "@/providers/LevelProvider";
+import { useEffect, useState } from "react";
 
 interface NavigationButtonsProps {
  className?: string;
@@ -20,6 +21,13 @@ export const NavigationButtons = ({
 }: NavigationButtonsProps) => {
  const { nextLevel, previousLevel, canGoNext, canGoPrevious } =
   useLevelContext();
+ const [isClient, setIsClient] = useState(false);
+
+ useEffect(() => {
+  setIsClient(true);
+ }, []);
+
+ if (!isClient) return null;
 
  return (
   <nav
