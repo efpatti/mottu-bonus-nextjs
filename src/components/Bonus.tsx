@@ -73,7 +73,7 @@ const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
     {/* Acelerador */}
     <div ref={aceleradorRef}>
      <h3 className="text-lg font-semibold text-gray-800 mb-4">Acelerador</h3>
-     <div className="overflow-x-auto">
+     <div className="overflow-x-hidden">
       <table className="min-w-full text-sm">
        <thead>
         <tr className="bg-green-50 text-green-800">
@@ -114,7 +114,7 @@ const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
     {/* Valores */}
     <div ref={valoresRef}>
      <h3 className="text-lg font-semibold text-gray-800 mb-4">Valores</h3>
-     <div className="overflow-x-auto">
+     <div className="overflow-x-hidden">
       <table className="min-w-full text-sm">
        <thead>
         <tr className="bg-green-50 text-green-800">
