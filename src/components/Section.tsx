@@ -23,5 +23,5 @@ export const Section = ({ level, children, className = "" }: SectionProps) => {
   return null;
  }
 
- return <div className={`level w-full ${className}`}>{children}</div>;
+ return <div className={`level w-full h-full ${className}`}>{children}</div>;
 };

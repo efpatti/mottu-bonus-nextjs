@@ -24,9 +24,9 @@ export const NavigationButtons = ({
  return (
   <nav
    aria-label="Navegação de etapas"
-   className={`flex justify-center mt-10 px-4 ${className}`}
+   className={`flex justify-center items-center ${className}`}
   >
-   <div className="flex gap-6 bg-white rounded-xl shadow-lg py-4 px-8 border border-gray-100">
+   <div className="flex gap-6 bg-transparent rounded-xl border border-gray-100">
     {!showOnlyNext && (
      <button
       type="button"
