@@ -19,7 +19,7 @@ export const metadata: Metadata = {
  title: "Mottu | Bonificação",
  description: "Reconhecendo quem faz a diferença!",
  icons: {
-  icon: getAssetPath("mottu_logo.png"),
+  icon: getAssetPath("icon-mottu-m.svg"),
  },
 };
 export default function RootLayout({
@@ -34,7 +34,7 @@ export default function RootLayout({
    >
     <LevelProvider>
      <Navbar />
-     <main className="min-h-screen overflow-y-scroll">{children}</main>
+     <main>{children}</main>
     </LevelProvider>
    </body>
   </html>
