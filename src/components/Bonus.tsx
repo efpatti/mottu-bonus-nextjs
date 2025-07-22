@@ -77,7 +77,14 @@ const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
    <section className="py-8 px-4 sm:px-6 max-w-4xl mx-auto space-y-10">
     {/* Valores */}
     <div ref={valuesRef}>
-     <h3 className="text-lg font-semibold text-gray-800 mb-4">Valores</h3>
+     <h3 className="text-lg font-semibold text-gray-800 mb-2">Valores</h3>
+     <p className="text-sm text-gray-600 mb-4">
+      Você acumula pontos ao realizar serviços. Ao atingir uma certa quantidade
+      de pontos, você recebe um bônus financeiro.
+      {vehicleType === "car"
+       ? " Para carros, 6 pontos garantem R$40, e cada ponto extra vale R$15."
+       : " Para motos, 5 pontos garantem R$40, e cada ponto extra vale R$15."}
+     </p>
      <div className="overflow-x-hidden">
       <table className="min-w-full text-sm">
        <thead>
@@ -104,8 +111,15 @@ const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
 
     {/* Acelerador */}
     <div ref={aceleradorRef}>
-     <h3 className="text-lg font-semibold text-gray-800 mb-4">Acelerador</h3>
-     <div className="overflow-x-hidden">
+     <h3 className="text-lg font-semibold text-gray-800 mb-2">Acelerador</h3>
+     <p className="text-sm text-gray-600 mb-4">
+      Aqui você entende quantos pontos são atribuídos de acordo com o tipo de
+      serviço e tempo de uso.
+      {vehicleType === "car"
+       ? " Quanto mais tempo e se o serviço foi pago, mais pontos você ganha."
+       : " Cada tipo de problema relatado na moto gera uma quantidade específica de pontos."}
+     </p>
+     <div className="overflow-x-auto">
       {vehicleType === "car" ? (
        <table className="min-w-full text-sm">
         <thead>
