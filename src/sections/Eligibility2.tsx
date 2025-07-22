@@ -1,4 +1,4 @@
-import { FaClock, FaCar, FaInfoCircle, FaTrophy } from "react-icons/fa";
+import { FaUsers, FaInfoCircle, FaTrophy } from "react-icons/fa";
 
 export const Eligibility2 = () => {
  return (
@@ -19,13 +19,19 @@ export const Eligibility2 = () => {
       {/* Meta 1 */}
       <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
        <div className="flex items-start">
-        <FaClock className="text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+        <FaUsers className="text-green-600 mt-0.5 mr-3 flex-shrink-0" />
         <div>
+         <p className="text-xs text-gray-500 uppercase font-semibold mb-1">
+          Critério Coletivo da Filial
+         </p>
          <h3 className="font-semibold text-gray-800 mb-1">
-          Agilidade no Serviço
+          Agilidade no Serviço (Meta da Filial)
          </h3>
          <p className="text-gray-600 text-sm">
-          80% dos serviços na rua abaixo de 90 minutos
+          80% dos serviços na rua abaixo de 90 minutos. <br />
+          <span className="font-medium text-gray-700">
+           Esse número é baseado no desempenho geral da filial.
+          </span>
          </p>
         </div>
        </div>
@@ -34,18 +40,30 @@ export const Eligibility2 = () => {
       {/* Meta 2 */}
       <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
        <div className="flex items-start">
-        <FaCar className="text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+        <FaUsers className="text-green-600 mt-0.5 mr-3 flex-shrink-0" />
         <div>
+         <p className="text-xs text-gray-500 uppercase font-semibold mb-1">
+          Critério Coletivo da Filial
+         </p>
          <h3 className="font-semibold text-gray-800 mb-1">
-          Controle da Inadimplência
+          Controle da Inadimplência (Meta da Filial)
          </h3>
          <p className="text-gray-600 text-sm">
-          Menos de 0,3% da frota em apropriação
+          Menos de 0,3% da frota em apropriação. <br />
+          <span className="font-medium text-gray-700">
+           Resultado referente ao controle coletivo da unidade.
+          </span>
          </p>
         </div>
        </div>
       </div>
      </div>
+
+     {/* Legenda explicativa final */}
+     <p className="text-xs text-gray-500 mt-6 italic">
+      * Todas as metas acima são avaliadas de forma coletiva, com base nos
+      resultados gerais da filial.
+     </p>
     </div>
 
     {/* Aviso Importante - Padronizado */}
