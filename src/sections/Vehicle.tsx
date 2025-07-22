@@ -6,6 +6,7 @@ import {
 } from "react-icons/fa";
 import { useVehicleSelection } from "@/hooks/useVehicleSelection";
 import Bonus from "@/components/Bonus";
+import { NavigationButtons } from "@/components/NavigationButtons";
 
 type VehicleType = "motorcycle" | "car";
 
@@ -14,70 +15,9 @@ interface BonusRulesProps {
 }
 
 const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
- const motorcycleRules = {
-  baseBonus: "R$ 40 por atingir 5 pontos diários",
-  additionalBonus: "R$ 15 para cada ponto adicional além de 5",
-  specialCases: [
-   "Serviço de retirada evitados por pagamento do cliente contam em dobro",
-   "Trocas resolvidas no local contam em dobro",
-  ],
-  penaltyFactors: [
-   "Ultrapassar 90 km/h: perde o bônus diário",
-   "Ultrapassar 120 km/h: perde metade do bônus mensal",
-   "Faltas injustificadas: perde o bônus quinzenal",
-   "Atrasos ou sair antes do horário: penalidade no bônus diário (melhor dia da quinzena)",
-   "Perda de ferramenta: desconto no bônus se positivo",
-  ],
- };
-
- const carRules = {
-  baseBonus: "R$ 40 por atingir 6 serviços diários",
-  additionalBonus: "R$ 15 para cada serviço adicional além de 6",
-  specialCases: [
-   "Serviço de retirada evitados por pagamento do cliente contam em dobro",
-  ],
-  penaltyFactors: [
-   "Ultrapassar limites de velocidade: penalidade no bônus",
-   "Faltas injustificadas: perde o bônus quinzenal",
-   "Atrasos ou sair antes do horário: penalidade no bônus diário",
-   "Perda de ferramenta: desconto no bônus se positivo",
-  ],
- };
-
- const rules = type === "motorcycle" ? motorcycleRules : carRules;
-
  return (
   <div className="space-y-6">
    <Bonus vehicleType={type === "motorcycle" ? "moto" : "car"} />
-
-   {/* Casos Especiais */}
-   {type === "car" && (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-     <h2 className="text-xl font-bold text-gray-800 mb-4">Casos Especiais</h2>
-     <ul className="space-y-3">
-      {rules.specialCases.map((item, index) => (
-       <li key={index} className="flex items-start">
-        <span className="bg-green-100 text-green-800 rounded-full p-1 mr-3">
-         <svg
-          className="w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-         >
-          <path
-           strokeLinecap="round"
-           strokeLinejoin="round"
-           strokeWidth="2"
-           d="M5 13l4 4L19 7"
-          />
-         </svg>
-        </span>
-        <span className="text-gray-700">{item}</span>
-       </li>
-      ))}
-     </ul>
-    </div>
-   )}
   </div>
  );
 };
@@ -156,6 +96,7 @@ export function Vehicle() {
     {selectedVehicle === "motorcycle" && <BonusRules type="motorcycle" />}
     {selectedVehicle === "car" && <BonusRules type="car" />}
    </div>
+   <NavigationButtons />
   </div>
  );
 }

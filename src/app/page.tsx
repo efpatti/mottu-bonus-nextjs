@@ -50,7 +50,6 @@ export default function HomePage() {
   </>,
   <>
    <Vehicle />
-   <NavigationButtons />
   </>,
   <>
    <BonusCalculation type={selectedVehicle} />
