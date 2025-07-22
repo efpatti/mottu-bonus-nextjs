@@ -33,7 +33,7 @@ export default function HomePage() {
  };
  const rules = selectedVehicle === "motorcycle" ? motorcycleRules : carRules;
  return (
-  <main className="h-full bg-white">
+  <main className="h-full bg-white min-h-screen">
    {/* Level 0 - Introduction (botão "1" na navbar) */}
    <Section level={0}>
     <Introduction />
