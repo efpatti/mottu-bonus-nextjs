@@ -10,7 +10,8 @@ export const Steps: Step[] = [
  { stepNumber: 4, label: "Elegibilidade 2" },
  { stepNumber: 5, label: "Regras do Bônus" },
  { stepNumber: 6, label: "Cálculo do Bônus" },
- { stepNumber: 7, label: "Fatores de Penalidade" },
+ { stepNumber: 7, label: "Calcule você mesmo!" },
+ { stepNumber: 8, label: "Fatores de Penalidade" },
 ];
 
 export const totalSteps = Steps.length;

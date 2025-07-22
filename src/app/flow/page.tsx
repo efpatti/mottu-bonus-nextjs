@@ -9,6 +9,8 @@ import { NavigationButtons } from "@/components/NavigationButtons";
 import { Benefits } from "@/sections/Benefits";
 import Fatores from "@/sections/Fatores";
 import { useVehicleSelection } from "@/hooks/useVehicleSelection";
+import BonusCalculation from "@/sections/BonusCalculation";
+import YourOwnCalculator from "@/sections/YourOwnCalculator";
 
 export default function HomePage() {
  const selectedVehicle = useVehicleSelection((s) => s.selectedVehicle);
@@ -31,35 +33,45 @@ export default function HomePage() {
   ],
  };
  const rules = selectedVehicle === "motorcycle" ? motorcycleRules : carRules;
+ const sections = [
+  <>
+   <Introduction />
+  </>,
+  <>
+   <Benefits />
+  </>,
+  <>
+   <Eligibility1 />
+   <NavigationButtons />
+  </>,
+  <>
+   <Eligibility2 />
+   <NavigationButtons />
+  </>,
+  <>
+   <Vehicle />
+   <NavigationButtons />
+  </>,
+  <>
+   <BonusCalculation type={selectedVehicle} />
+   <NavigationButtons />
+  </>,
+  <>
+   <YourOwnCalculator />
+  </>,
+  <>
+   <Fatores penaltyFactors={rules.penaltyFactors} />
+   <NavigationButtons showOnlyPrevious />
+  </>,
+ ];
+
  return (
-  <main className="h-full bg-white">
-   {/* Level 0 - Introduction (botão "1" na navbar) */}
-   <Section level={0}>
-    <Introduction />
-   </Section>
-
-   <Section level={1}>
-    <Benefits />
-   </Section>
-
-   <Section level={2}>
-    <Eligibility1 />
-    <NavigationButtons />
-   </Section>
-   <Section level={3}>
-    <Eligibility2 />
-    <NavigationButtons />
-   </Section>
-
-   {/* Level 4 - Bonus Rules (botão "4" na navbar) */}
-   <Section level={4}>
-    <Vehicle />
-    <NavigationButtons />
-   </Section>
-   <Section level={5}>
-    <Fatores penaltyFactors={rules.penaltyFactors} />
-    <NavigationButtons showOnlyPrevious />
-   </Section>
+  <main className="h-full bg-white min-h-screen">
+   {sections.map((content, idx) => (
+    <Section key={idx} level={idx}>
+     {content}
+    </Section>
+   ))}
   </main>
  );
 }

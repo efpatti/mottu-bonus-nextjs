@@ -25,13 +25,10 @@ export const Eligibility2 = () => {
           Critério Coletivo da Filial
          </p>
          <h3 className="font-semibold text-gray-800 mb-1">
-          Agilidade no Serviço (Meta da Filial)
+          Agilidade no Serviço
          </h3>
          <p className="text-gray-600 text-sm">
           80% dos serviços na rua abaixo de 90 minutos. <br />
-          <span className="font-medium text-gray-700">
-           Esse número é baseado no desempenho geral da filial.
-          </span>
          </p>
         </div>
        </div>
@@ -46,13 +43,10 @@ export const Eligibility2 = () => {
           Critério Coletivo da Filial
          </p>
          <h3 className="font-semibold text-gray-800 mb-1">
-          Controle da Inadimplência (Meta da Filial)
+          Controle da Inadimplência
          </h3>
          <p className="text-gray-600 text-sm">
           Menos de 0,3% da frota em apropriação. <br />
-          <span className="font-medium text-gray-700">
-           Resultado referente ao controle coletivo da unidade.
-          </span>
          </p>
         </div>
        </div>
