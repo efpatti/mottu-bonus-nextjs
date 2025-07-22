@@ -15,10 +15,10 @@ interface BonusRulesProps {
 
 const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
  const motorcycleRules = {
-  baseBonus: "R$ 40 por atingir 5 atendimentos diários",
-  additionalBonus: "R$ 15 para cada atendimento adicional além de 5",
+  baseBonus: "R$ 40 por atingir 5 serviço diários",
+  additionalBonus: "R$ 15 para cada serviço adicional além de 5",
   specialCases: [
-   "Atendimentos de retirada evitados por pagamento do cliente contam em dobro",
+   "Serviço de retirada evitados por pagamento do cliente contam em dobro",
    "Trocas resolvidas no local contam em dobro",
   ],
   penaltyFactors: [
@@ -31,10 +31,10 @@ const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
  };
 
  const carRules = {
-  baseBonus: "R$ 40 por atingir 6 atendimentos diários",
-  additionalBonus: "R$ 15 para cada atendimento adicional além de 6",
+  baseBonus: "R$ 40 por atingir 6 serviço diários",
+  additionalBonus: "R$ 15 para cada serviço adicional além de 6",
   specialCases: [
-   "Atendimentos de retirada evitados por pagamento do cliente contam em dobro",
+   "Serviço de retirada evitados por pagamento do cliente contam em dobro",
   ],
   penaltyFactors: [
    "Ultrapassar limites de velocidade: penalidade no bônus",
