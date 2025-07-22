@@ -27,7 +27,7 @@ export default function HomePage() {
    "Ultrapassar limites de velocidade: penalidade no bônus",
    "Faltas injustificadas: perde o bônus quinzenal",
    "Atrasos ou sair antes do horário: penalidade no bônus diário",
-   "Perda de ferramenta: desconto no bônus se positivo",
+   "Perda de ferramentas e ensumos: desconto no bônus se positivo",
   ],
  };
  const rules = selectedVehicle === "motorcycle" ? motorcycleRules : carRules;

@@ -29,7 +29,9 @@ export default function RootLayout({
 }>) {
  return (
   <html lang="pt-BR">
-   <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+   <body
+    className={`${geistSans.variable} ${geistMono.variable} antialiased w-full h-full overflow-x-scroll`}
+   >
     <LevelProvider>
      <Navbar />
      <main>{children}</main>

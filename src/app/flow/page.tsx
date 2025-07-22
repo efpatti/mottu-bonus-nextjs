@@ -2,43 +2,62 @@
 
 import { Section } from "@/components/Section";
 import { Introduction } from "@/sections/Introduction";
-import { Eligibility } from "@/sections/Eligibility1";
+import { Eligibility1 } from "@/sections/Eligibility1";
+import { Eligibility2 } from "@/sections/Eligibility2";
 import { Vehicle } from "@/sections/Vehicle";
 import { NavigationButtons } from "@/components/NavigationButtons";
+import { Benefits } from "@/sections/Benefits";
+import Fatores from "@/sections/Fatores";
+import { useVehicleSelection } from "@/hooks/useVehicleSelection";
 
 export default function HomePage() {
+ const selectedVehicle = useVehicleSelection((s) => s.selectedVehicle);
+
+ const motorcycleRules = {
+  penaltyFactors: [
+   "Ultrapassar 90 km/h: perde o bônus diário",
+   "Ultrapassar 120 km/h: perde a quinzena do bônus mensal",
+   "Faltas injustificadas: perde o bônus quinzenal",
+   "Atrasos ou sair antes do horário: penalidade no bônus diário (melhor dia da quinzena)",
+   "Perda de ferramenta: desconto no bônus se positivo",
+  ],
+ };
+ const carRules = {
+  penaltyFactors: [
+   "Ultrapassar limites de velocidade: penalidade no bônus",
+   "Faltas injustificadas: perde o bônus quinzenal",
+   "Atrasos ou sair antes do horário: penalidade no bônus diário",
+   "Perda de ferramentas e ensumos: desconto no bônus se positivo",
+  ],
+ };
+ const rules = selectedVehicle === "motorcycle" ? motorcycleRules : carRules;
  return (
-  <main className="min-h-screen bg-white">
-   {/* Level 0 - Introduction */}
+  <main className="h-full bg-white">
+   {/* Level 0 - Introduction (botão "1" na navbar) */}
    <Section level={0}>
-    {/* Hero Section */}
-    <section className="w-full bg-gradient-to-r from-green-600 to-green-500 py-16 px-4 sm:px-6 lg:py-20 shadow-md flex flex-col justify-center items-center text-center">
-     <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
-       Aumente seus Ganhos com Nosso Programa de Bônus!
-      </h1>
-      <p className="text-green-100 text-lg sm:text-xl max-w-3xl mx-auto">
-       Seu desempenho merece o nosso reconhecimento
-      </p>
-     </div>
-    </section>
-
-    {/* Introduction Section */}
     <Introduction />
-
-    <NavigationButtons showOnlyNext />
    </Section>
 
-   {/* Level 1 - Eligibility */}
    <Section level={1}>
-    <Eligibility />
+    <Benefits />
+   </Section>
+
+   <Section level={2}>
+    <Eligibility1 />
+    <NavigationButtons />
+   </Section>
+   <Section level={3}>
+    <Eligibility2 />
     <NavigationButtons />
    </Section>
 
-   {/* Level 2 - Bonus Rules (placeholder for now) */}
-   <Section level={2}>
+   {/* Level 4 - Bonus Rules (botão "4" na navbar) */}
+   <Section level={4}>
     <Vehicle />
-
+    <NavigationButtons />
+   </Section>
+   <Section level={5}>
+    <Fatores penaltyFactors={rules.penaltyFactors} />
     <NavigationButtons showOnlyPrevious />
    </Section>
   </main>

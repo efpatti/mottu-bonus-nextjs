@@ -1,9 +1,9 @@
-import { Eligibility } from "@/sections/Eligibility1";
+import { Eligibility1 } from "@/sections/Eligibility1";
 
 export default function EligibilityPage() {
  return (
   <main className="min-h-screen bg-white">
-   <Eligibility />
+   <Eligibility1 />
   </main>
  );
 }
