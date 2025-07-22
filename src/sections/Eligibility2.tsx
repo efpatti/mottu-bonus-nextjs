@@ -22,10 +22,10 @@ export const Eligibility2 = () => {
         <FaClock className="text-green-600 mt-0.5 mr-3 flex-shrink-0" />
         <div>
          <h3 className="font-semibold text-gray-800 mb-1">
-          Agilidade no Atendimento
+          Agilidade no Serviço
          </h3>
          <p className="text-gray-600 text-sm">
-          80% dos atendimentos na rua abaixo de 90 minutos
+          80% dos serviços na rua abaixo de 90 minutos
          </p>
         </div>
        </div>

@@ -176,9 +176,17 @@ const Bonus: React.FC = () => {
         >
          <div className="font-medium text-green-800">Período: {row.dias}</div>
          {expandedRows.includes(index) ? (
-          <FiChevronUp className="text-gray-500" />
+          <>
+           <FiChevronUp className="text-gray-500" />
+           {row.recolhido}
+           {row.recolhido > 1 ? " pontos" : " ponto"}
+          </>
          ) : (
-          <FiChevronDown className="text-gray-500" />
+          <>
+           <FiChevronDown className="text-gray-500" />
+           {row.recolhido}
+           {row.recolhido > 1 ? " pontos" : " ponto"}
+          </>
          )}
         </div>
         {expandedRows.includes(index) && (

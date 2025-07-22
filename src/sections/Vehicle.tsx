@@ -4,10 +4,8 @@ import {
  FaCar as CarIcon,
  FaInfoCircle,
 } from "react-icons/fa";
-import { FiAlertTriangle } from "react-icons/fi";
 import { useVehicleSelection } from "@/hooks/useVehicleSelection";
 import Bonus from "@/components/Bonus";
-import Fatores from "./Fatores";
 
 type VehicleType = "motorcycle" | "car";
 
@@ -60,13 +58,13 @@ const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
       {type === "motorcycle" ? (
        <>
         Você recebe <span className="font-bold">R$ 40</span> ao atingir a meta
-        diária de 5 atendimentos. Cada adicional soma{" "}
+        diária de 5 serviços. Cada adicional soma{" "}
         <span className="font-bold">R$ 15</span>.
        </>
       ) : (
        <>
         Você recebe <span className="font-bold">R$ 40</span> ao atingir a meta
-        diária de 6 atendimentos. Cada adicional soma{" "}
+        diária de 6 serviços. Cada adicional soma{" "}
         <span className="font-bold">R$ 15</span>.
        </>
       )}
@@ -82,30 +80,30 @@ const BonusRules: React.FC<BonusRulesProps> = ({ type }) => {
       {type === "motorcycle" ? (
        <>
         <p className="flex justify-between border-b border-gray-200 pb-2">
-         <span>5 atendimentos (meta):</span>
+         <span>5 serviços (meta):</span>
          <span className="font-bold">R$ 40</span>
         </p>
         <p className="flex justify-between border-b border-gray-200 py-2">
-         <span>+ 4 atendimentos extras:</span>
+         <span>+ 4 serviços extras:</span>
          <span className="font-bold">R$ 60</span>
         </p>
         <p className="flex justify-between pt-2 font-bold text-green-600">
-         <span>Total (9 atendimentos):</span>
+         <span>Total (9 serviços):</span>
          <span>R$ 100</span>
         </p>
        </>
       ) : (
        <>
         <p className="flex justify-between border-b border-gray-200 pb-2">
-         <span>6 atendimentos (meta):</span>
+         <span>6 serviços (meta):</span>
          <span className="font-bold">R$ 40</span>
         </p>
         <p className="flex justify-between border-b border-gray-200 py-2">
-         <span>+ 4 atendimentos extras:</span>
+         <span>+ 4 serviços extras:</span>
          <span className="font-bold">R$ 60</span>
         </p>
         <p className="flex justify-between pt-2 font-bold text-green-600">
-         <span>Total (10 atendimentos):</span>
+         <span>Total (10 serviços):</span>
          <span>R$ 100</span>
         </p>
        </>

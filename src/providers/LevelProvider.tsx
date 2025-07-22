@@ -14,6 +14,9 @@ interface LevelContextType {
  canGoPrevious: () => boolean;
 }
 
+console.log("Can go next:", useLevelStore.getState().canGoNext());
+console.log("Can go previous:", useLevelStore.getState().canGoPrevious());
+
 const LevelContext = createContext<LevelContextType | undefined>(undefined);
 
 interface LevelProviderProps {

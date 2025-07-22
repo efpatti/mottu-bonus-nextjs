@@ -1,6 +1,8 @@
 import { FaCheckCircle } from "react-icons/fa";
+import { useLevelContext } from "@/providers/LevelProvider";
 
 export const Benefits = () => {
+ const { nextLevel } = useLevelContext();
  return (
   <section className="py-12 px-4 sm:px-6 lg:px-8 w-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 flex items-center justify-center min-h-screen">
    <div className="w-full max-w-md sm:max-w-2xl lg:max-w-4xl mx-auto">
@@ -48,8 +50,11 @@ export const Benefits = () => {
      </ul>
 
      <div className="mt-10 text-center">
-      <button className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-full shadow-md transition-all duration-300 transform hover:scale-105">
-       Saiba mais
+      <button
+       className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-full shadow-md transition-all duration-300 transform hover:scale-105"
+       onClick={nextLevel}
+      >
+       Continuar
       </button>
      </div>
     </div>
