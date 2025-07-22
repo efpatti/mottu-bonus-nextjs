@@ -1,11 +1,14 @@
 import { FaInfoCircle, FaMotorcycle, FaCar } from "react-icons/fa";
-import React, { useState } from "react";
+import { NavigationButtons } from "@/components/NavigationButtons";
+import React from "react";
+import { VehicleType } from "@/hooks/useVehicleSelection";
 
-const BonusCalculation: React.FC = () => {
- const [selectedVehicle, setSelectedVehicle] = useState<"motorcycle" | "car">(
-  "motorcycle"
- );
+interface BonusCalculationProps {
+ type: VehicleType;
+}
 
+const BonusCalculation: React.FC<BonusCalculationProps> = ({ type }) => {
+ const selectedVehicle = type || "motorcycle";
  return (
   <div className="flex flex-col items-center min-h-screen bg-gray-50 py-8 px-4 sm:px-6">
    <div className="w-full max-w-2xl">
@@ -13,31 +16,7 @@ const BonusCalculation: React.FC = () => {
      Cálculo do Bônus
     </h2>
 
-    {/* Vehicle Selection */}
-    <div className="grid grid-cols-2 gap-4 mb-6">
-     <button
-      onClick={() => setSelectedVehicle("motorcycle")}
-      className={`flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 border-2 text-sm font-medium ${
-       selectedVehicle === "motorcycle"
-        ? "bg-green-600 text-white border-green-600 shadow-lg"
-        : "bg-white text-gray-700 border-gray-200 hover:border-green-400"
-      }`}
-     >
-      <FaMotorcycle className="text-2xl mb-1" />
-      Moto
-     </button>
-     <button
-      onClick={() => setSelectedVehicle("car")}
-      className={`flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 border-2 text-sm font-medium ${
-       selectedVehicle === "car"
-        ? "bg-green-600 text-white border-green-600 shadow-lg"
-        : "bg-white text-gray-700 border-gray-200 hover:border-green-400"
-      }`}
-     >
-      <FaCar className="text-2xl mb-1" />
-      Carro
-     </button>
-    </div>
+    {/* Vehicle Selection removed: now controlled by prop */}
 
     {/* Selected Vehicle Info */}
     <div className="bg-green-50 p-3 rounded-lg border border-green-100 mb-4 flex items-start">
@@ -93,6 +72,7 @@ const BonusCalculation: React.FC = () => {
       </>
      )}
     </div>
+    <NavigationButtons />
    </div>
   </div>
  );
