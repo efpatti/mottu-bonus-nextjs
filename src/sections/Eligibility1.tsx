@@ -4,15 +4,24 @@ import { useState, useMemo } from "react";
 import { filiais, filiaisProps } from "@/data/filiais";
 import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 
+const normalizar = (str: string) => {
+ return str
+  .normalize("NFD") // separa letras de acentos
+  .replace(/[\u0300-\u036f]/g, "") // remove os acentos
+  .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
+  .replace(/\s+/g, " ")
+  .trim()
+  .toLowerCase();
+};
+
 export const Eligibility1 = () => {
  const [searchTerm, setSearchTerm] = useState("");
  const [selectedUnit, setSelectedUnit] = useState<filiaisProps | null>(null);
 
  const filteredFiliais = useMemo(() => {
   if (!searchTerm) return [];
-  return filiais.filter((filial) =>
-   filial.unit.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const termo = normalizar(searchTerm);
+  return filiais.filter((filial) => normalizar(filial.unit).includes(termo));
  }, [searchTerm]);
 
  const handleSelectUnit = (filial: filiaisProps) => {
