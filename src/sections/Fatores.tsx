@@ -1,3 +1,4 @@
+import { NavigationButtons } from "@/components/NavigationButtons";
 import { FiAlertTriangle } from "react-icons/fi";
 
 export interface FatoresProps {
@@ -5,7 +6,7 @@ export interface FatoresProps {
 }
 
 const Fatores: React.FC<FatoresProps> = ({ penaltyFactors }) => (
- <section className="w-full h-dvw flex items-center justify-center py-10 px-4 sm:px-6 sm:h-[80vh]">
+ <section className="w-full h-screen flex items-center justify-center py-10 px-4 sm:px-6 sm:h-[80vh]">
   <div className="max-w-2xl w-full mx-auto rounded-xl shadow-md border border-red-200 bg-gradient-to-r from-yellow-100 to-red-100 p-8">
    <div className="flex items-center justify-center mb-4">
     <FiAlertTriangle className="text-yellow-500 text-xl mr-2" />
@@ -35,6 +36,7 @@ const Fatores: React.FC<FatoresProps> = ({ penaltyFactors }) => (
      </li>
     ))}
    </ul>
+   <NavigationButtons showOnlyPrevious />
   </div>
  </section>
 );

@@ -35,11 +35,11 @@ export const NavigationButtons = ({
    aria-label="Navegação de etapas"
    className={`flex justify-center items-center p-[20px] ${className}`}
   >
-   <div className="flex gap-6 bg-transparent rounded-xl border border-gray-100">
+   <div className="flex gap-6 bg-transparent rounded-xl">
     {!showOnlyNext && (
      <button
       type="button"
-      className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100 border border-gray-200"
+      className="cursor-pointer flex items-center gap-2 px-4 py-2 rounded-lg text-green-600 font-semibold hover:bg-gray-100 bg-gray-50/90 border border-gray-200"
       onClick={() => {
        previousLevel();
        scrollToTop();
@@ -53,7 +53,7 @@ export const NavigationButtons = ({
     {!showOnlyPrevious && (
      <button
       type="button"
-      className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700 border border-green-600"
+      className="cursor-pointer flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700 border border-green-600"
       onClick={() => {
        nextLevel();
        scrollToTop();

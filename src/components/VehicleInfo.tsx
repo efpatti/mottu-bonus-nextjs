@@ -20,7 +20,7 @@ const VehicleInfo: React.FC<VehicleInfoProps> = ({
     <div className="grid grid-cols-2 gap-4 mb-4">
      <button
       onClick={() => onSelectVehicle("motorcycle")}
-      className={`flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 border-2 text-sm font-medium ${
+      className={`cursor-pointer flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 border-2 text-sm font-medium ${
        selectedVehicle === "motorcycle"
         ? "bg-green-600 text-white border-green-600 shadow-lg"
         : "bg-white text-gray-700 border-gray-200 hover:border-green-400"
@@ -31,7 +31,7 @@ const VehicleInfo: React.FC<VehicleInfoProps> = ({
      </button>
      <button
       onClick={() => onSelectVehicle("car")}
-      className={`flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 border-2 text-sm font-medium ${
+      className={`cursor-pointer flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 border-2 text-sm font-medium ${
        selectedVehicle === "car"
         ? "bg-green-600 text-white border-green-600 shadow-lg"
         : "bg-white text-gray-700 border-gray-200 hover:border-green-400"

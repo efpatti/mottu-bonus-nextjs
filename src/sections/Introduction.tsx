@@ -19,7 +19,7 @@ export const Introduction = () => {
       Quanto mais você produz, mais você ganha.
      </p>
      <button
-      className="mt-4 px-6 py-2 bg-white text-green-600 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition text-xl md:text-2xl"
+      className="cursor-pointer mt-4 px-6 py-2 bg-white text-green-600 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition text-xl md:text-2xl"
       onClick={nextClick}
      >
       Saiba Mais

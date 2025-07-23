@@ -59,7 +59,6 @@ export default function HomePage() {
   </>,
   <>
    <Fatores penaltyFactors={rules.penaltyFactors} />
-   <NavigationButtons showOnlyPrevious />
   </>,
  ];
 

@@ -25,7 +25,7 @@ const ProgressStep = ({
  isDesktop = false,
 }: ProgressStepProps) => (
  <motion.button
-  className={`flex items-center gap-1 ${
+  className={`cursor-pointer flex items-center gap-1 ${
    isDesktop ? "px-2 py-1 text-sm" : "p-3 w-full text-left"
   } rounded-lg transition-colors ${
    isActive
