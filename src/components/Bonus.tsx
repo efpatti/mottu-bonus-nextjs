@@ -134,14 +134,14 @@ const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
         <tbody className="divide-y divide-gray-200">
          {mainTableDataCar.map((row, index) => (
           <tr key={index} className="hover:bg-gray-50 transition-colors">
-           <td className="px-4 py-3">{row.dias}</td>
-           <td className="px-4 py-3">
+           <td className="px-3 py-2">{row.dias}</td>
+           <td className="px-3 py-2">
             <div className="flex items-center gap-1">
              <FiCheckCircle className="text-green-500" /> {row.recolhido}{" "}
              {row.recolhido > 1 ? "pontos" : "ponto"}
             </div>
            </td>
-           <td className="px-4 py-3">
+           <td className="px-3 py-2">
             <div className="flex items-center gap-1">
              <FiCheckCircle className="text-green-500" /> {row.pago}{" "}
              {row.pago > 1 ? "pontos" : "ponto"}
