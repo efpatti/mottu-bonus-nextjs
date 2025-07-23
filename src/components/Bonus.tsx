@@ -45,7 +45,7 @@ const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
   const observer = new IntersectionObserver(
    ([entry]) => {
     if (entry.target === valuesRef.current && entry.isIntersecting) {
-     setSection("Valuees");
+     setSection("Valores");
     } else if (
      aceleradorRef.current &&
      aceleradorRef.current.getBoundingClientRect().top <= 100
