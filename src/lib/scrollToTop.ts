@@ -1,12 +1,26 @@
 export function scrollToTop() {
- if (typeof window !== "undefined") {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  // Try to scroll MobileMenu container if present (mobile)
-  const modal = document.querySelector(
-   ".container.mx-auto.p-6.overflow-y-auto.h-full"
+ if (typeof window === "undefined") return;
+
+ // Rola a página principal
+ window.scrollTo({ top: 0, behavior: "smooth" });
+
+ // Encontra o container com o maior scrollHeight visível
+ const scrollableElements = Array.from(
+  document.querySelectorAll<HTMLElement>("*")
+ ).filter((el) => {
+  const style = window.getComputedStyle(el);
+  const hasScroll = style.overflowY === "auto" || style.overflowY === "scroll";
+  return (
+   el.scrollHeight > el.clientHeight && hasScroll && el.offsetParent !== null // visível na tela
   );
-  if (modal) {
-   (modal as HTMLElement).scrollTo({ top: 0, behavior: "smooth" });
-  }
+ });
+
+ // Ordena por scrollHeight (descendente) e scrolla o maior
+ const topScrollable = scrollableElements.sort(
+  (a, b) => b.scrollHeight - a.scrollHeight
+ )[0];
+
+ if (topScrollable) {
+  topScrollable.scrollTo({ top: 0, behavior: "smooth" });
  }
 }
