@@ -11,6 +11,7 @@ import {
  FaEdit,
 } from "react-icons/fa";
 import { NavigationButtons } from "@/components/NavigationButtons";
+import VehicleInfo from "@/components/VehicleInfo";
 import { v4 as uuidv4 } from "uuid";
 
 const carOptions = [
@@ -88,7 +89,6 @@ const YourOwnCalculator = () => {
      (entry.totalCount - entry.paidCount) * baseOption.points;
     return acc + totalFromPaid + totalFromUnpaid;
    } else {
-    // Moto: cada serviço = pontos
     return acc + entry.totalCount * baseOption.points;
    }
   }, 0);
@@ -125,7 +125,6 @@ const YourOwnCalculator = () => {
       Calculadora de Bônus
      </h2>
 
-     {/* Vehicle Selection */}
      <div className="grid grid-cols-2 gap-4 mb-4">
       <button
        onClick={() => setSelectedVehicle("motorcycle")}
@@ -151,22 +150,11 @@ const YourOwnCalculator = () => {
       </button>
      </div>
 
-     {/* Selected Vehicle Info */}
-     <div className="bg-green-50 p-3 rounded-lg border border-green-100 mb-2 flex items-start">
-      <FaInfoCircle className="text-green-600 mt-1 mr-2 flex-shrink-0" />
-      <div>
-       <p className="text-green-800 font-medium">
-        Veículo selecionado:{" "}
-        <span className="font-bold">
-         {selectedVehicle === "motorcycle" ? "Moto" : "Carro"}
-        </span>
-       </p>
-       <p className="text-green-600 text-xs mt-1">
-        {selectedVehicle === "motorcycle"
-         ? "Moto: meta diária de 5 pontos. Cada ponto extra soma R$ 15."
-         : "Carro: meta diária de 6 pontos. Cada ponto extra soma R$ 15."}
-       </p>
-      </div>
+     <VehicleInfo selectedVehicle={selectedVehicle} />
+     <div className="text-green-600 text-xs mb-2">
+      {selectedVehicle === "motorcycle"
+       ? "Moto: meta diária de 5 pontos. Cada ponto extra soma R$ 15."
+       : "Carro: meta diária de 6 pontos. Cada ponto extra soma R$ 15."}
      </div>
 
      <div className="space-y-2">
@@ -216,43 +204,51 @@ const YourOwnCalculator = () => {
 
        <Button
         onClick={handleAddOrEditEntry}
-        className={
-         selectedVehicle === "car"
-          ? "col-span-1 text-sm bg-green-600 hover:bg-green-700"
-          : "col-span-1 text-sm bg-green-600 hover:bg-green-700"
-        }
+        className="col-span-1 text-sm bg-green-600 hover:bg-green-700"
        >
         {editId ? "Salvar" : "Adicionar"}
        </Button>
       </div>
      </div>
 
-     <div className="space-y-1 text-sm">
-      {entries.map((entry) => {
-       const label = options.find((d) => d.value === entry.days)?.label;
-       return (
-        <div
-         key={entry.id}
-         className="p-2 bg-gray-50 rounded-md flex justify-between items-center"
-        >
-         <div>
-          <strong>{label}</strong> —{" "}
-          {selectedVehicle === "car"
-           ? `${entry.paidCount}/${entry.totalCount} pagas`
-           : `${entry.totalCount} serviços`}
-         </div>
-         <div className="flex gap-2">
-          <button onClick={() => handleEdit(entry)}>
-           <FaEdit className="text-blue-500 hover:text-blue-700" />
-          </button>
-          <button onClick={() => handleDelete(entry.id)}>
-           <FaTrash className="text-red-500 hover:text-red-700" />
-          </button>
-         </div>
-        </div>
-       );
-      })}
-     </div>
+     {entries.length > 0 && (
+      <div className="overflow-x-auto">
+       <table className="w-full text-sm text-left border rounded-md overflow-hidden">
+        <thead className="bg-green-100 text-green-900">
+         <tr>
+          <th className="p-2">Período/Serviço</th>
+          <th className="p-2 text-center">
+           {selectedVehicle === "car" ? "Pagas/Total" : "Serviços"}
+          </th>
+          <th className="p-2 text-center">Ações</th>
+         </tr>
+        </thead>
+        <tbody className="bg-white divide-y">
+         {entries.map((entry) => {
+          const label = options.find((d) => d.value === entry.days)?.label;
+          return (
+           <tr key={entry.id}>
+            <td className="p-2">{label}</td>
+            <td className="p-2 text-center">
+             {selectedVehicle === "car"
+              ? `${entry.paidCount}/${entry.totalCount}`
+              : `${entry.totalCount}`}
+            </td>
+            <td className="p-2 text-center flex justify-center gap-2">
+             <button onClick={() => handleEdit(entry)} title="Editar">
+              <FaEdit className="text-blue-500 hover:text-blue-700" />
+             </button>
+             <button onClick={() => handleDelete(entry.id)} title="Remover">
+              <FaTrash className="text-red-500 hover:text-red-700" />
+             </button>
+            </td>
+           </tr>
+          );
+         })}
+        </tbody>
+       </table>
+      </div>
+     )}
 
      <div className="bg-blue-50 p-3 rounded-lg">
       <div className="flex items-start gap-2">

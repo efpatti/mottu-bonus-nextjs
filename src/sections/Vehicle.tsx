@@ -2,11 +2,11 @@ import React from "react";
 import {
  FaMotorcycle as MotorcycleIcon,
  FaCar as CarIcon,
- FaInfoCircle,
 } from "react-icons/fa";
 import { useVehicleSelection } from "@/hooks/useVehicleSelection";
 import Bonus from "@/components/Bonus";
 import { NavigationButtons } from "@/components/NavigationButtons";
+import VehicleInfo from "@/components/VehicleInfo";
 
 type VehicleType = "motorcycle" | "car";
 
@@ -75,22 +75,7 @@ export function Vehicle() {
     </div>
 
     {/* Selected Vehicle Info */}
-    {selectedVehicle && (
-     <div className="bg-green-50 p-4 rounded-lg border border-green-200 mb-8 flex items-start">
-      <FaInfoCircle className="text-green-600 mt-1 mr-3 flex-shrink-0" />
-      <div>
-       <p className="text-green-800 font-medium">
-        Veículo selecionado:{" "}
-        <span className="font-bold">
-         {selectedVehicle === "motorcycle" ? "Moto" : "Carro"}
-        </span>
-       </p>
-       <p className="text-green-600 text-sm mt-1">
-        Veja abaixo as regras específicas para seu veículo
-       </p>
-      </div>
-     </div>
-    )}
+    <VehicleInfo selectedVehicle={selectedVehicle} />
 
     {/* Rules Content */}
     {selectedVehicle === "motorcycle" && <BonusRules type="motorcycle" />}
