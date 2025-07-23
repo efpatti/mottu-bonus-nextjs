@@ -121,7 +121,7 @@ const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
         <thead>
          <tr className="bg-green-50 text-green-800">
           <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">
-           Qtd Dias
+           Dias
           </th>
           <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">
            Serviço Recolhido
@@ -166,8 +166,8 @@ const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
         <tbody className="divide-y divide-gray-200">
          {mainTableDataMoto.map((row, index) => (
           <tr key={index} className="hover:bg-gray-50 transition-colors">
-           <td className="px-4 py-3">{row.service_description}</td>
-           <td className="px-4 py-3">
+           <td className="px-3 py-2">{row.service_description}</td>
+           <td className="px-3 py-2">
             <div className="flex items-center gap-1">
              <FiCheckCircle className="text-green-500" /> {row.value}{" "}
              {row.value > 1 ? "pontos" : "ponto"}
