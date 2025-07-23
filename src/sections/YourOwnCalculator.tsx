@@ -125,37 +125,17 @@ const YourOwnCalculator = () => {
       Calculadora de Bônus
      </h2>
 
-     <div className="grid grid-cols-2 gap-4 mb-4">
-      <button
-       onClick={() => setSelectedVehicle("motorcycle")}
-       className={`flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 border-2 text-sm font-medium ${
-        selectedVehicle === "motorcycle"
-         ? "bg-green-600 text-white border-green-600 shadow-lg"
-         : "bg-white text-gray-700 border-gray-200 hover:border-green-400"
-       }`}
-      >
-       <FaMotorcycle className="text-2xl mb-1" />
-       Moto
-      </button>
-      <button
-       onClick={() => setSelectedVehicle("car")}
-       className={`flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 border-2 text-sm font-medium ${
-        selectedVehicle === "car"
-         ? "bg-green-600 text-white border-green-600 shadow-lg"
-         : "bg-white text-gray-700 border-gray-200 hover:border-green-400"
-       }`}
-      >
-       <FaCar className="text-2xl mb-1" />
-       Carro
-      </button>
-     </div>
-
-     <VehicleInfo selectedVehicle={selectedVehicle} />
-     <div className="text-green-600 text-xs mb-2">
-      {selectedVehicle === "motorcycle"
-       ? "Moto: meta diária de 5 pontos. Cada ponto extra soma R$ 15."
-       : "Carro: meta diária de 6 pontos. Cada ponto extra soma R$ 15."}
-     </div>
+     <VehicleInfo
+      selectedVehicle={selectedVehicle}
+      onSelectVehicle={setSelectedVehicle}
+      showSelector
+     >
+      <div className="text-green-600 text-xs mb-2">
+       {selectedVehicle === "motorcycle"
+        ? "Moto: meta diária de 5 pontos. Cada ponto extra soma R$ 15."
+        : "Carro: meta diária de 6 pontos. Cada ponto extra soma R$ 15."}
+      </div>
+     </VehicleInfo>
 
      <div className="space-y-2">
       <div className="grid grid-cols-3 gap-2">

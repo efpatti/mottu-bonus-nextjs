@@ -1,14 +1,18 @@
-import { FaInfoCircle, FaMotorcycle, FaCar } from "react-icons/fa";
 import { NavigationButtons } from "@/components/NavigationButtons";
 import React from "react";
 import { VehicleType } from "@/hooks/useVehicleSelection";
+import VehicleInfo from "@/components/VehicleInfo";
 
 interface BonusCalculationProps {
  type: VehicleType;
 }
 
+import { useState } from "react";
+
 const BonusCalculation: React.FC<BonusCalculationProps> = ({ type }) => {
- const selectedVehicle = type || "motorcycle";
+ const [selectedVehicle, setSelectedVehicle] = useState<"motorcycle" | "car">(
+  type || "motorcycle"
+ );
  return (
   <div className="flex flex-col items-center min-h-screen bg-gray-50 py-8 px-4 sm:px-6">
    <div className="w-full max-w-2xl">
@@ -16,25 +20,17 @@ const BonusCalculation: React.FC<BonusCalculationProps> = ({ type }) => {
      Cálculo do Bônus
     </h2>
 
-    {/* Vehicle Selection removed: now controlled by prop */}
-
-    {/* Selected Vehicle Info */}
-    <div className="bg-green-50 p-3 rounded-lg border border-green-100 mb-4 flex items-start">
-     <FaInfoCircle className="text-green-600 mt-1 mr-2 flex-shrink-0" />
-     <div>
-      <p className="text-green-800 font-medium">
-       Veículo selecionado:{" "}
-       <span className="font-bold">
-        {selectedVehicle === "motorcycle" ? "Moto" : "Carro"}
-       </span>
-      </p>
-      <p className="text-green-600 text-xs mt-1">
-       {selectedVehicle === "motorcycle"
-        ? "Moto: meta diária de 5 pontos. Cada ponto extra soma R$ 15."
-        : "Carro: meta diária de 6 pontos. Cada ponto extra soma R$ 15."}
-      </p>
+    <VehicleInfo
+     selectedVehicle={selectedVehicle}
+     onSelectVehicle={setSelectedVehicle}
+     showSelector
+    >
+     <div className="text-green-600 text-xs mb-4">
+      {selectedVehicle === "motorcycle"
+       ? "Moto: meta diária de 5 pontos. Cada ponto extra soma R$ 15."
+       : "Carro: meta diária de 6 pontos. Cada ponto extra soma R$ 15."}
      </div>
-    </div>
+    </VehicleInfo>
 
     <h3 className="text-base font-semibold text-gray-800 mb-2">
      Exemplo Prático

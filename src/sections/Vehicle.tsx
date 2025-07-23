@@ -1,8 +1,3 @@
-import React from "react";
-import {
- FaMotorcycle as MotorcycleIcon,
- FaCar as CarIcon,
-} from "react-icons/fa";
 import { useVehicleSelection } from "@/hooks/useVehicleSelection";
 import Bonus from "@/components/Bonus";
 import { NavigationButtons } from "@/components/NavigationButtons";
@@ -39,43 +34,11 @@ export function Vehicle() {
      </p>
     </div>
 
-    {/* Vehicle Selection */}
-    <div className="grid grid-cols-2 gap-4 mb-8">
-     <button
-      onClick={() => setSelectedVehicle("motorcycle")}
-      className={`
-              flex flex-col items-center justify-center p-6 rounded-xl
-              transition-all duration-200 border-2
-              ${
-               selectedVehicle === "motorcycle"
-                ? "bg-green-600 text-white border-green-600 shadow-lg"
-                : "bg-white text-gray-700 border-gray-200 hover:border-green-400"
-              }
-            `}
-     >
-      <MotorcycleIcon className="text-3xl mb-2" />
-      <span className="font-medium">Moto</span>
-     </button>
-
-     <button
-      onClick={() => setSelectedVehicle("car")}
-      className={`
-              flex flex-col items-center justify-center p-6 rounded-xl
-              transition-all duration-200 border-2
-              ${
-               selectedVehicle === "car"
-                ? "bg-green-600 text-white border-green-600 shadow-lg"
-                : "bg-white text-gray-700 border-gray-200 hover:border-green-400"
-              }
-            `}
-     >
-      <CarIcon className="text-3xl mb-2" />
-      <span className="font-medium">Carro</span>
-     </button>
-    </div>
-
-    {/* Selected Vehicle Info */}
-    <VehicleInfo selectedVehicle={selectedVehicle} />
+    <VehicleInfo
+     selectedVehicle={selectedVehicle}
+     onSelectVehicle={setSelectedVehicle}
+     showSelector
+    />
 
     {/* Rules Content */}
     {selectedVehicle === "motorcycle" && <BonusRules type="motorcycle" />}
