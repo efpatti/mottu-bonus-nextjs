@@ -121,7 +121,7 @@ const Bonus: React.FC<BonusProps> = ({ vehicleType }) => {
         <thead>
          <tr className="bg-green-50 text-green-800">
           <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">
-           Quantidade (dias)
+           Dias
           </th>
           <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">
            Serviço Recolhido
