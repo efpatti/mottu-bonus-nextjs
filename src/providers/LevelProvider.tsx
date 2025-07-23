@@ -1,12 +1,16 @@
 "use client";
 
-import React, { createContext, useContext, ReactNode } from "react";
+import React, { createContext, useContext, ReactNode, useEffect } from "react";
 import { useLevelStore, VehicleType } from "@/stores/levelStore";
+
+import { Steps } from "@/data/steps";
 
 interface LevelContextType {
  currentLevel: number;
  selectedVehicle: VehicleType;
  setCurrentLevel: (level: number) => void;
+ setCurrentLevelLabel: (label: string) => void;
+ currentLevelLabel: string;
  setSelectedVehicle: (vehicle: VehicleType) => void;
  nextLevel: () => void;
  previousLevel: () => void;
@@ -25,6 +29,13 @@ interface LevelProviderProps {
 
 export const LevelProvider = ({ children }: LevelProviderProps) => {
  const store = useLevelStore();
+
+ useEffect(() => {
+  const label = Steps[store.currentLevel]?.label || "";
+  if (label !== store.currentLevelLabel) {
+   store.setCurrentLevelLabel(label);
+  }
+ }, [store.currentLevel]);
 
  return <LevelContext.Provider value={store}>{children}</LevelContext.Provider>;
 };

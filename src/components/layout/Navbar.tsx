@@ -157,7 +157,7 @@ const Logo = () => (
 
 // Main Navbar component
 export const Navbar = () => {
- const { currentLevel, setCurrentLevel } = useLevelContext();
+ const { currentLevel, setCurrentLevel, currentLevelLabel } = useLevelContext();
  const [menuOpen, setMenuOpen] = useState(false);
 
  // Use imported Steps from '@/data/steps'
@@ -175,7 +175,10 @@ export const Navbar = () => {
     <div className="mx-auto px-4">
      <div className="flex h-16 items-center justify-between">
       <Logo />
-
+      <h1 className="text-green-600 font-semibold">
+       <span>{currentLevel + 1}. </span>
+       {currentLevelLabel}
+      </h1>
       <div className="hidden md:block">
        <ProgressSteps
         steps={steps}

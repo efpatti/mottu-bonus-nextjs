@@ -1,10 +1,12 @@
 import { create } from "zustand";
-import { totalSteps } from "@/data/steps";
+import { totalSteps, Steps } from "@/data/steps";
 
 export type VehicleType = "motorcycle" | "car";
 
 interface LevelState {
  currentLevel: number;
+ currentLevelLabel: string;
+ setCurrentLevelLabel: (label: string) => void;
  selectedVehicle: VehicleType;
  setCurrentLevel: (level: number) => void;
  setSelectedVehicle: (vehicle: VehicleType) => void;
@@ -16,7 +18,12 @@ interface LevelState {
 
 export const useLevelStore = create<LevelState>((set, get) => ({
  currentLevel: 0,
+ currentLevelLabel: Steps[0]?.label || "",
  selectedVehicle: "motorcycle",
+ setCurrentLevelLabel: (label: string) => {
+  console.log(`[LevelStore] setCurrentLevelLabel:`, label);
+  set({ currentLevelLabel: label });
+ },
 
  setCurrentLevel: (level: number) => {
   console.log(`[LevelStore] setCurrentLevel:`, level);
