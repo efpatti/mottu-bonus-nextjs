@@ -29,9 +29,9 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
+/.angular/cache
 /.angular/
 .angular/*
-.angular
 .sass-cache/
 /connect.lock
 /coverage
