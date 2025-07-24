@@ -1,18 +1,18 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
-import { scrollToTop } from '../../utils/scroll-to-top';
-import { NavigationService } from '../../services/navigation.service';
-import { Router } from '@angular/router';
+import { Component, OnInit, DoCheck } from "@angular/core";
+import { scrollToTop } from "../../utils/scroll-to-top";
+import { NavigationService } from "../../services/navigation.service";
+import { Router } from "@angular/router";
 
-import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { CommonModule } from "@angular/common";
+import { MatIconModule } from "@angular/material/icon";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 @Component({
-  selector: 'app-header',
+  selector: "app-header",
   standalone: true,
   imports: [CommonModule, MatIconModule, FontAwesomeModule],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit, DoCheck {
   steps: any[] = [];
@@ -44,13 +44,13 @@ export class HeaderComponent implements OnInit, DoCheck {
   }
 
   get currentStepLabel(): string {
-    return this.steps[this.currentLevel]?.label || '';
+    return this.steps[this.currentLevel]?.label || "";
   }
 
   navigateTo(level: number): void {
     this.navigationService.navigateTo(level);
     this.currentLevel = this.navigationService.getCurrentLevel();
-    this.updateRoute();
+    // Removido updateRoute para evitar erro de rota
     scrollToTop();
   }
 
@@ -65,16 +65,6 @@ export class HeaderComponent implements OnInit, DoCheck {
   }
 
   private updateRoute(): void {
-    const routes = [
-      'intro',
-      'benefits',
-      'eligibility1',
-      'eligibility2',
-      'rules',
-      'calculation',
-      'calculator',
-      'penalties',
-    ];
-    this.router.navigate([routes[this.currentLevel]]);
+    // Removido: não navega mais por rotas, só troca seção ativa
   }
 }

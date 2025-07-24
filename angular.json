@@ -81,10 +81,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mottu-bonus-angular:build:production"
+              "buildTarget": "mottu-bonus:build:production"
             },
             "development": {
-              "buildTarget": "mottu-bonus-angular:build:development"
+              "buildTarget": "mottu-bonus:build:development"
             }
           },
           "defaultConfiguration": "development"
