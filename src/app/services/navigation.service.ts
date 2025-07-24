@@ -12,7 +12,7 @@ export class NavigationService {
     { stepNumber: 4, label: "Elegibilidade 2" },
     { stepNumber: 5, label: "Regras do Bônus" },
     { stepNumber: 6, label: "Calcule você mesmo!" },
-    { stepNumber: 7, label: "Fatores de Penalidade" },
+    { stepNumber: 7, label: "Fatores que Afetam o Bônus" },
   ];
 
   private currentLevel = 0;
