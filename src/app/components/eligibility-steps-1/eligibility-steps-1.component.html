@@ -1,0 +1,136 @@
+<div class="w-full bg-white">
+  <!-- Hero Section -->
+  <section class="w-full bg-green-600 py-10 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight"
+      >
+        O sucesso coletivo libera seu bônus
+      </h1>
+      <p class="text-green-100 text-base sm:text-lg">
+        Sua filial precisa cumprir 2 etapas para ativar o bônus individual
+      </p>
+
+      <!-- Progress steps -->
+      <div class="flex justify-center mt-8 gap-1 sm:gap-4">
+        <div
+          *ngFor="let step of steps; let i = index"
+          class="flex flex-col items-center"
+        >
+          <div
+            class="w-10 h-10 rounded-full flex items-center justify-center mb-2"
+            [class.bg-green-700]="i === 0"
+            [class.bg-green-500]="i !== 0"
+          >
+            <span class="text-white font-medium">{{ i + 1 }}</span>
+          </div>
+          <span class="text-white text-xs sm:text-sm">{{ step }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 1 - Elegibilidade -->
+  <section class="py-8 px-4 sm:px-6 max-w-4xl mx-auto">
+    <div class="mb-10">
+      <div class="flex items-center mb-4">
+        <div class="bg-green-100 p-2 rounded-full mr-3">
+          <fa-icon [icon]="faUsers" class="text-green-600 text-lg"></fa-icon>
+        </div>
+        <h2 class="text-xl font-bold text-gray-800">
+          Passo 1: Verifique se a sua filial é elegível
+        </h2>
+      </div>
+
+      <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+        <div class="flex">
+          <fa-icon
+            [icon]="faClock"
+            class="text-green-600 mt-0.5 mr-3 flex-shrink-0"
+          ></fa-icon>
+          <h3 class="font-semibold text-gray-800 mb-2">Estrutura da Equipe</h3>
+        </div>
+        <p class="text-gray-600 text-sm mb-4">
+          Operar com pelo menos 4 prestadores. Se tiver dúvidas, consulte o seu
+          líder.
+        </p>
+
+        <!-- Buscador de Filiais -->
+        <div class="relative mb-4">
+          <div class="relative">
+            <fa-icon
+              [icon]="faSearch"
+              class="absolute left-3 top-3 text-gray-400"
+            ></fa-icon>
+            <input
+              type="text"
+              placeholder="Digite o nome da sua filial..."
+              class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              [(ngModel)]="searchTerm"
+              (input)="onSearchInput()"
+            />
+          </div>
+
+          <!-- Dropdown de resultados -->
+          <div
+            *ngIf="searchTerm && !selectedUnit"
+            class="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-auto"
+          >
+            <div *ngIf="filteredFiliais.length > 0; else noResults">
+              <div
+                *ngFor="let filial of filteredFiliais"
+                class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                (click)="handleSelectUnit(filial)"
+              >
+                {{ filial.unit }}
+              </div>
+            </div>
+            <ng-template #noResults>
+              <div class="px-4 py-2 text-gray-500">
+                Nenhuma filial encontrada
+              </div>
+            </ng-template>
+          </div>
+        </div>
+
+        <!-- Resultado da busca -->
+        <div
+          *ngIf="selectedUnit"
+          class="p-4 rounded-lg border"
+          [class.bg-green-50]="selectedUnit.providers >= 4"
+          [class.border-green-200]="selectedUnit.providers >= 4"
+          [class.bg-red-50]="selectedUnit.providers < 4"
+          [class.border-red-200]="selectedUnit.providers < 4"
+        >
+          <h4 class="font-semibold mb-1">{{ selectedUnit.unit }}</h4>
+          <div class="flex items-center">
+            <span class="mr-2">
+              <fa-icon
+                [icon]="
+                  selectedUnit.providers >= 4
+                    ? faCheckCircle
+                    : faExclamationCircle
+                "
+                [class.text-green-600]="selectedUnit.providers >= 4"
+                [class.text-red-600]="selectedUnit.providers < 4"
+              ></fa-icon>
+            </span>
+            <span>
+              {{ selectedUnit.providers }} prestador{{
+                selectedUnit.providers !== 1 ? "es" : ""
+              }}
+            </span>
+          </div>
+          <p class="mt-2 text-sm">
+            {{
+              selectedUnit.providers >= 4
+                ? "Esta filial é elegível para o bônus!"
+                : "Esta filial precisa de pelo menos 4 prestadores para se tornar elegível."
+            }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-navigation-buttons [showOnlyPrevious]="false"></app-navigation-buttons>
+</div>

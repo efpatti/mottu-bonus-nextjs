@@ -1,0 +1,15 @@
+<app-header></app-header>
+
+<main class="main-content">
+  <ng-container [ngSwitch]="currentLevel">
+    <app-intro-section *ngSwitchCase="0"></app-intro-section>
+    <app-benefits-section *ngSwitchCase="1"></app-benefits-section>
+    <app-eligibility-steps-1 *ngSwitchCase="2"></app-eligibility-steps-1>
+    <app-eligibility-steps-2 *ngSwitchCase="3"></app-eligibility-steps-2>
+    <app-bonus-rules *ngSwitchCase="4"></app-bonus-rules>
+    <app-bonus-calculation *ngSwitchCase="5"></app-bonus-calculation>
+    <app-bonus-calculator *ngSwitchCase="6"></app-bonus-calculator>
+    <app-penalty-factors *ngSwitchCase="7"></app-penalty-factors>
+    <app-error-section *ngSwitchCase="8"></app-error-section>
+  </ng-container>
+</main>

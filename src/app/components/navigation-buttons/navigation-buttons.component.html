@@ -1,0 +1,27 @@
+<nav
+  aria-label="Navegação de etapas"
+  class="flex justify-center items-center p-5"
+>
+  <div class="flex gap-6 bg-transparent rounded-xl">
+    <button
+      *ngIf="!showOnlyNext"
+      type="button"
+      class="cursor-pointer flex items-center gap-2 px-4 py-2 rounded-lg text-green-600 font-semibold hover:bg-gray-100 bg-gray-50/90 border border-gray-200"
+      (click)="handlePreviousLevel()"
+      [disabled]="!canGoPrevious()"
+    >
+      <fa-icon [icon]="faChevronLeft" class="text-green-600 text-lg"></fa-icon>
+      <span>{{ customPreviousLabel || "Voltar" }}</span>
+    </button>
+    <button
+      *ngIf="!showOnlyPrevious"
+      type="button"
+      class="cursor-pointer flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700 border border-green-600"
+      (click)="handleNextLevel()"
+      [disabled]="!canGoNext()"
+    >
+      <span>{{ customNextLabel || "Continuar" }}</span>
+      <fa-icon [icon]="faChevronRight" class="text-white text-lg"></fa-icon>
+    </button>
+  </div>
+</nav>

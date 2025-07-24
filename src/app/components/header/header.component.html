@@ -1,0 +1,92 @@
+<nav
+  class="w-full sticky top-0 z-40 bg-zinc-900 backdrop-blur-md border-b border-zinc-800"
+>
+  <div class="mx-auto px-4">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <!-- Desktop Logo -->
+        <img
+          src="mottu_logo.png"
+          alt="Mottu Logo"
+          width="120"
+          height="32"
+          class="h-8 w-auto hidden md:block"
+        />
+        <!-- Mobile Logo -->
+        <img
+          src="icon-mottu-m.svg"
+          alt="Mottu Icon"
+          width="40"
+          height="40"
+          class="h-6 w-auto md:hidden"
+        />
+      </div>
+      <!-- Título da seção atual (mobile) -->
+      <h1 class="text-green-600 font-semibold md:hidden">
+        <span>{{ currentStepNumber }}. </span>{{ currentStepLabel }}
+      </h1>
+      <!-- Passos (desktop) -->
+      <div id="desktop-steps" class="hidden md:flex items-center space-x-1">
+        <ng-container *ngFor="let stepItem of steps; let idx = index">
+          <button
+            (click)="navigateTo(idx)"
+            class="cursor-pointer flex items-center gap-1 px-2 py-1 text-sm rounded-lg transition-colors"
+            [class.bg-green-600-10]="currentLevel === idx"
+            [class.text-green-500]="currentLevel === idx"
+            [class.text-gray-400]="currentLevel !== idx"
+            [class.hover:bg-gray-800-50]="currentLevel !== idx"
+          >
+            <span
+              class="font-medium text-xs min-w-[80px] max-w-[110px] truncate inline-block"
+              >{{ idx + 1 }}. {{ stepItem.label }}</span
+            >
+          </button>
+        </ng-container>
+      </div>
+      <button
+        id="mobile-menu-button"
+        (click)="toggleMobileMenu()"
+        class="md:hidden p-2 text-gray-400"
+        aria-label="Menu"
+      >
+        <fa-icon
+          [icon]="mobileMenuOpen ? faXmark : faBars"
+          class="text-xl"
+        ></fa-icon>
+      </button>
+    </div>
+  </div>
+</nav>
+<!-- Menu Mobile -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-30 bg-zinc-900/90 backdrop-blur-sm pt-16"
+  [class.hidden]="!mobileMenuOpen"
+>
+  <div class="container mx-auto p-6 overflow-y-auto h-full">
+    <div id="mobile-steps" class="w-full px-2 space-y-2">
+      <ng-container *ngFor="let stepItem of steps; let idx = index">
+        <button
+          (click)="navigateToStep(idx)"
+          class="cursor-pointer flex items-center gap-1 p-3 w-full text-left rounded-lg transition-colors"
+          [class.bg-green-600-10]="currentLevel === idx"
+          [class.text-green-500]="currentLevel === idx"
+          [class.text-gray-400]="currentLevel !== idx"
+          [class.hover:bg-gray-800-50]="currentLevel !== idx"
+        >
+          <span class="font-medium">{{ idx + 1 }}. {{ stepItem.label }}</span>
+        </button>
+      </ng-container>
+    </div>
+    <div class="mt-8 flex justify-center">
+      <button
+        id="close-mobile-menu"
+        class="px-6 py-2 text-gray-400 hover:text-white border border-gray-700 rounded-lg"
+        (click)="toggleMobileMenu()"
+      >
+        Fechar
+      </button>
+    </div>
+  </div>
+</div>

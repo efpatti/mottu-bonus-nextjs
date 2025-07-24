@@ -1,0 +1,39 @@
+<div class="grid grid-cols-2 gap-4 mb-4">
+  <button
+    (click)="onSelectVehicle('motorcycle')"
+    class="cursor-pointer flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 border-2 text-sm font-medium"
+    [class.bg-green-600]="selectedVehicle === 'motorcycle'"
+    [class.text-white]="selectedVehicle === 'motorcycle'"
+    [class.border-green-600]="selectedVehicle === 'motorcycle'"
+    [class.shadow-lg]="selectedVehicle === 'motorcycle'"
+    [class.bg-white]="selectedVehicle !== 'motorcycle'"
+    [class.text-gray-700]="selectedVehicle !== 'motorcycle'"
+    [class.border-gray-200]="selectedVehicle !== 'motorcycle'"
+    [class.hover:border-green-400]="selectedVehicle !== 'motorcycle'"
+  >
+    <fa-icon [icon]="faMotorcycle" class="text-2xl mb-2"></fa-icon>
+    <span> Moto </span>
+  </button>
+  <button
+    (click)="onSelectVehicle('car')"
+    class="cursor-pointer flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 border-2 text-sm font-medium"
+    [class.bg-green-600]="selectedVehicle === 'car'"
+    [class.text-white]="selectedVehicle === 'car'"
+    [class.border-green-600]="selectedVehicle === 'car'"
+    [class.shadow-lg]="selectedVehicle === 'car'"
+    [class.bg-white]="selectedVehicle !== 'car'"
+    [class.text-gray-700]="selectedVehicle !== 'car'"
+    [class.border-gray-200]="selectedVehicle !== 'car'"
+    [class.hover:border-green-400]="selectedVehicle !== 'car'"
+  >
+    <fa-icon [icon]="faCar" class="text-2xl mb-2"></fa-icon>
+    <span> Carro </span>
+  </button>
+</div>
+<div class="mb-4">
+  <app-vehicle-info
+    [selectedVehicle]="selectedVehicle"
+    (vehicleSelected)="onSelectVehicle($event)"
+    [showSelector]="true"
+  ></app-vehicle-info>
+</div>

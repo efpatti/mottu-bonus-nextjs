@@ -1,0 +1,20 @@
+<div
+  class="bg-green-50 p-4 rounded-lg border border-green-200 mb-4 flex items-start"
+>
+  <div class="text-green-600 mt-1 mr-3 flex-shrink-0">i</div>
+  <div>
+    <p class="text-green-800 font-medium">
+      Veículo selecionado:
+      <span class="font-bold">{{
+        selectedVehicle === "motorcycle" ? "Moto" : "Carro"
+      }}</span>
+    </p>
+    <p class="text-green-600 text-sm mt-1">
+      {{
+        selectedVehicle === "motorcycle"
+          ? "Moto: meta diária de 5 pontos. Cada ponto extra soma R$ 15."
+          : "Carro: meta diária de 6 pontos. Cada ponto extra soma R$ 15."
+      }}
+    </p>
+  </div>
+</div>

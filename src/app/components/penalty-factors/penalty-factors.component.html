@@ -1,0 +1,39 @@
+<section
+  class="w-full h-screen flex items-center justify-center py-10 px-4 sm:px-6 sm:h-[80vh]"
+>
+  <div
+    class="max-w-2xl w-full mx-auto rounded-xl shadow-md border border-red-200 bg-gradient-to-r from-yellow-100 to-red-100 p-8"
+  >
+    <div class="flex items-center justify-center mb-4">
+      <fa-icon
+        [icon]="faAlertTriangle"
+        class="text-yellow-500 text-xl mr-2"
+      ></fa-icon>
+      <h2 class="text-xl font-bold text-red-700">Fatores que Afetam o Bônus</h2>
+    </div>
+    <ul class="space-y-3">
+      <li
+        *ngFor="let item of penaltyFactors"
+        class="flex items-center justify-center"
+      >
+        <span class="bg-red-200 text-red-800 rounded-full p-1 mr-3">
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              [attr.stroke-width]="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </span>
+        <span class="text-gray-700">{{ item }}</span>
+      </li>
+    </ul>
+    <app-navigation-buttons [showOnlyPrevious]="true"></app-navigation-buttons>
+  </div>
+</section>

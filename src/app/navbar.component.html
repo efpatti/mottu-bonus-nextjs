@@ -1,0 +1,38 @@
+<!-- Navbar extraída do app.component.migration.html -->
+<nav
+  class="w-full sticky top-0 z-40 bg-zinc-900 backdrop-blur-md border-b border-zinc-800"
+>
+  <div class="mx-auto px-4">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL..."
+          alt="Mottu Logo"
+          width="120"
+          height="32"
+          class="h-8 w-auto"
+        />
+      </div>
+      <!-- Título da seção atual (mobile) -->
+      <h1
+        id="current-level-label"
+        class="text-green-600 font-semibold md:hidden"
+      >
+        <span>1. </span>Introdução
+      </h1>
+      <!-- Passos (desktop) -->
+      <div
+        id="desktop-steps"
+        class="hidden md:flex items-center space-x-1"
+      ></div>
+      <!-- Botão do menu mobile -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 text-gray-400 hover:text-white"
+      >
+        <i class="bx bx-menu text-2xl"></i>
+      </button>
+    </div>
+  </div>
+</nav>

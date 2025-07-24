@@ -1,0 +1,83 @@
+<div class="w-full bg-white">
+  <!-- Section 2 - Goals -->
+  <section class="py-8 px-4 sm:px-6 max-w-4xl mx-auto">
+    <div class="mb-10">
+      <div class="flex items-center mb-4">
+        <div class="bg-green-100 p-2 rounded-full mr-3">
+          <fa-icon [icon]="faTrophy" class="text-green-600 text-lg"></fa-icon>
+        </div>
+        <h2 class="text-xl font-bold text-gray-800">
+          Passo 2: Bata as metas coletivas
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Goal 1 -->
+        <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+          <div class="flex items-start">
+            <fa-icon
+              [icon]="faUsers"
+              class="text-green-600 mt-0.5 mr-3 flex-shrink-0"
+            ></fa-icon>
+            <div>
+              <p class="text-xs text-gray-500 uppercase font-semibold mb-1">
+                Critério Coletivo da Filial
+              </p>
+              <h3 class="font-semibold text-gray-800 mb-1">
+                Agilidade no Serviço
+              </h3>
+              <p class="text-gray-600 text-sm">
+                80% dos serviços na rua abaixo de 90 minutos. <br />
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Goal 2 -->
+        <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+          <div class="flex items-start">
+            <fa-icon
+              [icon]="faUsers"
+              class="text-green-600 mt-0.5 mr-3 flex-shrink-0"
+            ></fa-icon>
+            <div>
+              <p class="text-xs text-gray-500 uppercase font-semibold mb-1">
+                Critério Coletivo da Filial
+              </p>
+              <h3 class="font-semibold text-gray-800 mb-1">
+                Controle da Inadimplência
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Menos de 0,3% da frota em apropriação. <br />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Explanatory note -->
+      <p class="text-xs text-gray-500 mt-6 italic">
+        * Todas as metas acima são avaliadas de forma coletiva, com base nos
+        resultados gerais da filial.
+      </p>
+    </div>
+
+    <!-- Important Notice - Standardized -->
+    <div class="bg-green-50 p-5 rounded-lg border border-green-200">
+      <div class="flex items-start">
+        <fa-icon
+          [icon]="faInfoCircle"
+          class="text-green-600 mt-0.5 mr-3 flex-shrink-0"
+        ></fa-icon>
+        <div>
+          <h3 class="font-semibold text-green-800 mb-1">Atenção</h3>
+          <p class="text-green-700 text-sm">
+            Ambos os passos devem ser concluídos para liberação do bônus.
+            Elegibilidade primeiro, depois metas de desempenho.
+          </p>
+        </div>
+      </div>
+    </div>
+    <app-navigation-buttons></app-navigation-buttons>
+  </section>
+</div>
