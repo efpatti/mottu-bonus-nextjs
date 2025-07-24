@@ -86,7 +86,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/mottu-bonus-angular/browser
+          path: ./dist/mottu-bonus/browser
 
   # Deployment job
   deploy:

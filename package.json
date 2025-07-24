@@ -1,5 +1,5 @@
 {
-  "name": "mottu-bonus-angular",
+  "name": "mottu-bonus",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:mottu-bonus-angular": "node dist/mottu-bonus-angular/server/server.mjs"
+    "serve:ssr:mottu-bonus": "node dist/mottu-bonus/server/server.mjs"
   },
   "prettier": {
     "overrides": [
