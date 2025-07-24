@@ -1,23 +1,22 @@
-import { Injectable } from '@angular/core';
-import { scrollToTop } from '../utils/scroll-to-top';
+import { Injectable } from "@angular/core";
+import { scrollToTop } from "../utils/scroll-to-top";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class NavigationService {
   private steps = [
-    { stepNumber: 1, label: 'Introdução' },
-    { stepNumber: 2, label: 'Benefícios' },
-    { stepNumber: 3, label: 'Elegibilidade 1' },
-    { stepNumber: 4, label: 'Elegibilidade 2' },
-    { stepNumber: 5, label: 'Regras do Bônus' },
-    { stepNumber: 6, label: 'Cálculo do Bônus' },
-    { stepNumber: 7, label: 'Calcule você mesmo!' },
-    { stepNumber: 8, label: 'Fatores de Penalidade' },
+    { stepNumber: 1, label: "Introdução" },
+    { stepNumber: 2, label: "Benefícios" },
+    { stepNumber: 3, label: "Elegibilidade 1" },
+    { stepNumber: 4, label: "Elegibilidade 2" },
+    { stepNumber: 5, label: "Regras do Bônus" },
+    { stepNumber: 6, label: "Calcule você mesmo!" },
+    { stepNumber: 7, label: "Fatores de Penalidade" },
   ];
 
   private currentLevel = 0;
-  private selectedVehicle: 'motorcycle' | 'car' = 'motorcycle';
+  private selectedVehicle: "motorcycle" | "car" = "motorcycle";
 
   getSteps() {
     return this.steps;
@@ -31,7 +30,7 @@ export class NavigationService {
     return this.selectedVehicle;
   }
 
-  setSelectedVehicle(vehicle: 'motorcycle' | 'car') {
+  setSelectedVehicle(vehicle: "motorcycle" | "car") {
     this.selectedVehicle = vehicle;
   }
 
